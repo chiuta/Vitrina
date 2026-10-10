@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitrina — conținut public Facebook, fără cont</title>
+<meta name="description" content="Vitrina afișează pagini, postări și video-uri publice Facebook prin modulele oficiale Meta, fără cont. Conținutul se încarcă de la Meta (IP și URL vizibile Meta). 7 limbi.">
+<meta name="theme-color" content="#0F1B1E">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; frame-src https://www.facebook.com https://*.facebook.com; base-uri 'none'; form-action 'none'">
+<style>
+  :root{
+    --ink:#0F1B1E;
+    --case:#152528;
+    --case-2:#1C2F33;
+    --case-3:#233D42;
+    --glass:#9FD3CC;
+    --glass-dim:#4E6C6A;
+    --brass:#C9A15A;
+    --brass-dim:#8B6F3E;
+    --paper:#EEEBE3;
+    --muted:#94ABAE;
+    --error:#E08A73;
+    --radius:14px;
+    --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', ui-serif, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', ui-sans-serif, Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(159,211,204,0.07), transparent 55%),
+      var(--ink);
+    color:var(--paper);
+    font-family:var(--sans);
+    line-height:1.5;
+    min-height:100vh;
+    padding:32px 20px 60px;
+  }
+
+  a{color:var(--glass);}
+  a:hover{color:var(--paper);}
+
+  .wrap{max-width:760px;margin:0 auto;}
+
+  /* ---------- header ---------- */
+  header{margin-bottom:28px;}
+  .header-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--brass);
+    border:1px solid var(--brass-dim);
+    padding:4px 10px;border-radius:100px;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brass);display:inline-block;}
+  .lang-select{
+    background:var(--case-2);
+    border:1px solid var(--case-3);
+    color:var(--muted);
+    font-family:var(--mono);
+    font-size:11.5px;
+    padding:5px 10px;
+    border-radius:100px;
+    cursor:pointer;
+    outline:none;
+  }
+  .lang-select:hover{color:var(--paper);border-color:var(--glass-dim);}
+  .lang-select:focus-visible{outline:2px solid var(--glass);outline-offset:2px;}
+  .lang-select option{background:var(--case-2);color:var(--paper);}
+
+  h1{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(28px,5vw,38px);
+    margin:0 0 10px;
+    color:var(--paper);
+    letter-spacing:.2px;
+  }
+  header p{
+    margin:0;
+    color:var(--muted);
+    font-size:14.5px;
+    max-width:56ch;
+  }
+  header p strong{color:var(--paper);font-weight:600;}
+
+  /* ---------- controls card ---------- */
+  .card{
+    background:var(--case);
+    border:1px solid var(--case-3);
+    border-radius:var(--radius);
+    padding:20px;
+    margin-bottom:22px;
+  }
+
+  label{
+    display:block;
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:8px;
+  }
+
+  .url-row{display:flex;gap:8px;margin-bottom:16px;}
+  input[type="text"]{
+    flex:1;min-width:0;
+    background:var(--case-2);
+    border:1px solid var(--case-3);
+    color:var(--paper);
+    font-family:var(--mono);
+    font-size:14px;
+    padding:12px 14px;
+    border-radius:10px;
+    outline:none;
+    transition:border-color .15s ease;
+  }
+  input[type="text"]::placeholder{color:#7F9F9C;}
+  input[type="text"]:focus-visible{border-color:var(--glass);box-shadow:0 0 0 3px rgba(159,211,204,.18);}
+
+  button{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    border-radius:10px;
+    border:1px solid transparent;
+    transition:filter .12s ease, transform .06s ease;
+  }
+  button:active{transform:translateY(1px);}
+  button:focus-visible{outline:2px solid var(--glass);outline-offset:2px;}
+
+  .btn-primary{
+    background:var(--brass);
+    color:#241A0B;
+    padding:0 22px;
+    white-space:nowrap;
+  }
+  .btn-primary:hover{filter:brightness(1.08);}
+  .btn-ghost{
+    background:transparent;
+    border-color:var(--case-3);
+    color:var(--muted);
+    padding:7px 12px;
+    font-size:12.5px;
+  }
+  .btn-ghost:hover{color:var(--paper);border-color:var(--glass-dim);}
+
+  .controls-grid{display:flex;flex-wrap:wrap;gap:18px;}
+  .control-group{min-width:0;}
+
+  .segmented{
+    display:inline-flex;
+    background:var(--case-2);
+    border:1px solid var(--case-3);
+    border-radius:9px;
+    padding:3px;
+    gap:2px;
+  }
+  .segmented button{
+    background:transparent;
+    color:var(--muted);
+    padding:6px 12px;
+    font-size:12.5px;
+    border-radius:6px;
+  }
+  .segmented button[aria-pressed="true"]{
+    background:var(--case-3);
+    color:var(--paper);
+  }
+  .segmented button:hover{color:var(--paper);}
+
+  .error-msg{
+    color:var(--error);
+    font-size:13px;
+    margin-top:10px;
+    display:none;
+  }
+  .error-msg.show{display:block;}
+
+  /* ---------- the vitrine (display case) ---------- */
+  .vitrine{
+    position:relative;
+    background:var(--case);
+    border:1px solid var(--case-3);
+    border-radius:var(--radius);
+    padding:3px;
+    margin-bottom:14px;
+    overflow:hidden;
+  }
+  .vitrine::before, .vitrine::after{
+    content:"";
+    position:absolute;
+    width:22px;height:22px;
+    border-color:var(--brass);
+    border-style:solid;
+    z-index:2;
+    pointer-events:none;
+    opacity:.75;
+  }
+  .vitrine::before{top:8px;left:8px;border-width:2px 0 0 2px;}
+  .vitrine::after{bottom:8px;right:8px;border-width:0 2px 2px 0;}
+
+  .vitrine-sheen{
+    position:absolute;inset:0;
+    background:linear-gradient(115deg, transparent 40%, rgba(159,211,204,.10) 48%, rgba(159,211,204,.16) 50%, rgba(159,211,204,.10) 52%, transparent 60%);
+    transform:translateX(-120%);
+    z-index:3;
+    pointer-events:none;
+  }
+  .vitrine-sheen.play{animation:sheen 1.4s ease-out;}
+  @keyframes sheen{
+    to{transform:translateX(120%);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .vitrine-sheen.play{animation:none;}
+  }
+
+  .embed-stage{
+    background:var(--ink);
+    border-radius:calc(var(--radius) - 3px);
+    min-height:220px;
+    display:flex;
+    align-items:center;
+    overflow:auto;
+  }
+  .embed-stage iframe{
+    display:block;
+    border:0;
+    flex-shrink:0;
+    margin:auto;   /* centrare fără tăiere la overflow */
+    max-width:none;
+  }
+
+  .empty-state{
+    margin:auto;
+    text-align:center;
+    color:#7F9F9C;
+    padding:50px 20px;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:16px;
+    max-width:38ch;
+  }
+
+  .specimen-label{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px 14px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--muted);
+    padding:11px 4px 3px;
+  }
+  .specimen-label b{color:var(--brass);font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+  .specimen-label .sep{color:var(--case-3);}
+  .specimen-label a{margin-left:auto;}
+
+  /* ---------- history ---------- */
+  .history{margin-bottom:26px;}
+  .history-title{
+    font-family:var(--mono);
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:9px;
+  }
+  .history-rail{
+    display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;
+  }
+  .tag{
+    flex:0 0 auto;
+    background:var(--case);
+    border:1px solid var(--case-3);
+    color:var(--muted);
+    font-family:var(--mono);
+    font-size:12px;
+    padding:7px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    max-width:220px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .tag:hover{border-color:var(--glass-dim);color:var(--paper);}
+
+  /* ---------- footer / info ---------- */
+  footer{
+    border-top:1px solid var(--case-3);
+    padding-top:20px;
+    color:var(--muted);
+    font-size:12.5px;
+  }
+  footer h2{
+    font-family:var(--sans);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    color:var(--paper);
+    margin:0 0 10px;
+  }
+  footer p{margin:0 0 10px;}
+  footer ul{margin:0 0 14px;padding-left:18px;}
+  footer li{margin-bottom:5px;}
+  footer .ok{color:var(--glass);}
+  footer .maybe{color:var(--brass);}
+  footer .no{color:var(--error);}
+
+  .unsupported-note{
+    margin:auto;
+    text-align:center;
+    font-family:var(--sans);
+    font-style:normal;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.65;
+    max-width:42ch;
+    padding:40px 20px;
+  }
+  .unsupported-note b{color:var(--error);font-weight:600;}
+
+  @media (max-width:560px){
+    .url-row{flex-direction:column;}
+    .btn-primary{padding:12px;width:100%;}
+    .specimen-label a{margin-left:0;}
+  }
+</style>
+</head>
+<body>
+<noscript>Această pagină necesită JavaScript. / This page requires JavaScript.</noscript>
+
+<div class="wrap">
+
+  <header>
+    <div class="header-top">
+      <span class="eyebrow" data-i18n="eyebrow">Meta Social Plugins · fără cont</span>
+      <select id="langSelect" class="lang-select" data-i18n-aria-label="langAriaLabel" aria-label="Limbă">
+        <option value="ro">Română</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="it">Italiano</option>
+        <option value="es">Español</option>
+        <option value="pt">Português</option>
+        <option value="de">Deutsch</option>
+      </select>
+    </div>
+    <h1>Vitrina</h1>
+    <p data-i18n-html="tagline">Pune un URL de <strong>pagină</strong>, <strong>postare</strong> sau <strong>video</strong> Facebook care e deja public. Vitrina îl afișează prin modulele oficiale Meta — nu extrage, nu stochează, nu ocolește nimic.</p>
+  </header>
+
+  <form class="card" id="form">
+    <label for="urlInput" data-i18n="urlLabel">URL Facebook</label>
+    <div class="url-row">
+      <input type="text" id="urlInput" data-i18n-placeholder="urlPlaceholder" placeholder="https://www.facebook.com/numepagina sau .../posts/123..." autocomplete="off" spellcheck="false">
+      <button type="submit" class="btn-primary" data-i18n="showBtn">Afișează</button>
+    </div>
+
+    <div class="controls-grid">
+      <div class="control-group">
+        <label data-i18n="typeLabel">Tip conținut</label>
+        <div class="segmented" id="typeSeg" role="group" data-i18n-aria-label="typeLabel" aria-label="Tip conținut">
+          <button type="button" data-type="auto" data-i18n="typeAuto" aria-pressed="true">Auto</button>
+          <button type="button" data-type="page" data-i18n="typePage" aria-pressed="false">Pagină</button>
+          <button type="button" data-type="post" data-i18n="typePost" aria-pressed="false">Postare</button>
+          <button type="button" data-type="video" data-i18n="typeVideo" aria-pressed="false">Video</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <label data-i18n="widthLabel">Lățime</label>
+        <div class="segmented" id="widthSeg" role="group" data-i18n-aria-label="widthLabel" aria-label="Lățime">
+          <button type="button" data-width="340" data-i18n="widthCompact" aria-pressed="false">Compact</button>
+          <button type="button" data-width="500" data-i18n="widthStandard" aria-pressed="true">Standard</button>
+          <button type="button" data-width="620" data-i18n="widthWide" aria-pressed="false">Larg</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <label data-i18n="heightLabel">Înălțime</label>
+        <div class="segmented" id="heightSeg" role="group" data-i18n-aria-label="heightLabel" aria-label="Înălțime">
+          <button type="button" data-height="500" data-i18n="heightShort" aria-pressed="false">Scurt</button>
+          <button type="button" data-height="700" data-i18n="heightMedium" aria-pressed="true">Mediu</button>
+          <button type="button" data-height="900" data-i18n="heightTall" aria-pressed="false">Lung</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="error-msg" id="errorMsg" aria-live="polite"></p>
+  </form>
+
+  <div class="history" id="historyBlock" style="display:none;">
+    <div class="history-title" data-i18n="historyTitle">Vizualizate în această sesiune</div>
+    <div class="history-rail" id="historyRail"></div>
+  </div>
+
+  <div class="vitrine">
+    <div class="vitrine-sheen" id="sheen"></div>
+    <div class="embed-stage" id="embedStage" aria-live="polite">
+      <div class="empty-state" data-i18n-html="emptyState">Vitrina e goală.<br>Adaugă un URL public mai sus.</div>
+    </div>
+  </div>
+  <div class="specimen-label" id="specimenLabel" style="display:none;">
+    <span><b data-i18n="specimenTypeLbl">Tip</b> <span id="lblType">—</span><span id="lblExperimental" data-i18n="experimentalCaveat" style="display:none;color:var(--muted);text-transform:none;letter-spacing:0;"> · neconfirmat oficial de Meta</span></span>
+    <span class="sep">·</span>
+    <span><b data-i18n="specimenSourceLbl">Sursă</b> <span id="lblSource">—</span></span>
+    <span class="sep">·</span>
+    <span><b data-i18n="specimenTimeLbl">Încărcat</b> <span id="lblTime">—</span></span>
+    <a href="#" id="lblOpen" data-i18n="openLink" target="_blank" rel="noopener noreferrer">deschide pe facebook.com ↗</a>
+    <button type="button" class="btn-ghost" id="clearBtn" data-i18n="clearBtn">golește vitrina</button>
+  </div>
+
+  <footer>
+    <h2 data-i18n="footerHeading">Cum funcționează, exact</h2>
+    <p data-i18n-html="footerP1">Acest fișier nu descarcă și nu stochează nimic de pe Facebook. Când apeși „Afișează”, se construiește un <code>&lt;iframe&gt;</code> către modulele oficiale <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — mecanismul oficial pus la dispoziție de Meta pentru afișarea conținutului public pe alte site-uri (se aplică Termenii Platformei Meta). Aceste module iframe nu cer cont sau token din partea ta. Separat, Meta a anunțat la 15 iunie 2026 acces fără token la API-urile sale oEmbed (Vitrina nu le folosește) — conform anunțului Meta la data scrierii; verifică documentația oficială.</p>
+    <p data-i18n-html="footerPrivacy"><strong>Fără cont ≠ fără urmărire.</strong> Conținutul afișat este încărcat direct de la Meta (facebook.com): Meta primește adresa ta IP, datele browserului și URL-ul pe care îl vizualizezi și poate seta cookie-uri în iframe, conform politicilor sale. Vitrina nu trimite nimic altundeva, nu are analitice și nu stochează nimic (istoricul există doar în memoria filei). Meta poate cere autentificare sau poate refuza afișarea unor conținuturi. Folosește modulele doar pentru afișare, conform termenilor Meta.</p>
+    <ul>
+      <li data-i18n-html="footerOk"><span class="ok">Merge, documentat oficial:</span> pagini publice — cronologie completă (Page Plugin); postări publice individuale de pe o pagină <em>sau</em> de pe un profil personal (Embedded Posts); video-uri și reels publice individuale, inclusiv live (Embedded Video Player).</li>
+      <li data-i18n-html="footerMaybe"><span class="maybe">Poate funcționa, neconfirmat de Meta:</span> o postare sau un video anume dintr-un Grup sau Eveniment public — încearcă URL-ul exact al postării, nu al grupului/evenimentului în sine.</li>
+      <li data-i18n-html="footerNo"><span class="no">Niciun modul oficial pentru:</span> cronologia întreagă a unui Grup, a unui Eveniment sau a unui anunț Marketplace; cronologia unui profil personal (doar postările individuale merg, nu fluxul complet).</li>
+    </ul>
+    <p data-i18n-html="footerP2">Dacă vitrina rămâne goală după încărcare, un blocker de reclame/tracking poate opri iframe-urile către facebook.com — folosește linkul „deschide pe facebook.com” de sub vitrină ca variantă directă.</p>
+  </footer>
+
+</div>
+
+<script>
+
+(function(){
+  "use strict";
+
+  var I18N = {
+  "ro": {
+    "title": "Vitrina — conținut public Facebook, fără cont",
+    "eyebrow": "Meta Social Plugins · fără cont",
+    "tagline": "Pune un URL de <strong>pagină</strong>, <strong>postare</strong> sau <strong>video</strong> Facebook care e deja public. Vitrina îl afișează prin modulele oficiale Meta — nu extrage, nu stochează, nu ocolește nimic.",
+    "urlLabel": "URL Facebook",
+    "urlPlaceholder": "https://www.facebook.com/numepagina sau .../posts/123...",
+    "showBtn": "Afișează",
+    "typeLabel": "Tip conținut",
+    "typeAuto": "Auto",
+    "typePage": "Pagină",
+    "typePost": "Postare",
+    "typeVideo": "Video",
+    "widthLabel": "Lățime",
+    "widthCompact": "Compact",
+    "widthStandard": "Standard",
+    "widthWide": "Larg",
+    "heightLabel": "Înălțime",
+    "heightShort": "Scurt",
+    "heightMedium": "Mediu",
+    "heightTall": "Lung",
+    "errEmpty": "Introdu mai întâi un URL.",
+    "errInvalid": "Nu pare un URL facebook.com valid. Format așteptat: https://www.facebook.com/...",
+    "emptyState": "Vitrina e goală.<br>Adaugă un URL public mai sus.",
+    "historyTitle": "Vizualizate în această sesiune",
+    "clearBtn": "golește vitrina",
+    "specimenTypeLbl": "Tip",
+    "specimenSourceLbl": "Sursă",
+    "specimenTimeLbl": "Încărcat",
+    "experimentalCaveat": "· neconfirmat oficial de Meta",
+    "openLink": "deschide pe facebook.com ↗",
+    "unsupportedSuffix": "— nesuportat",
+    "unsupportedMsg": "<b>{label}</b> nu are un modul oficial de embedding la Meta — doar Pagini, Postări și Video-uri sunt acoperite de Social Plugins momentan.<br><br>Dacă ai URL-ul unei postări sau al unui video anume din interior, încearcă-l separat.",
+    "footerHeading": "Cum funcționează, exact",
+    "footerP1": "Acest fișier nu descarcă și nu stochează nimic de pe Facebook. Când apeși „Afișează”, se construiește un <code>&lt;iframe&gt;</code> către modulele oficiale <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — mecanismul oficial pus la dispoziție de Meta pentru afișarea conținutului public pe alte site-uri (se aplică Termenii Platformei Meta). Aceste module iframe nu cer cont sau token din partea ta. Separat, Meta a anunțat la 15 iunie 2026 acces fără token la API-urile sale oEmbed (Vitrina nu le folosește) — conform anunțului Meta la data scrierii; verifică documentația oficială.",
+    "footerPrivacy": "<strong>Fără cont ≠ fără urmărire.</strong> Conținutul afișat este încărcat direct de la Meta (facebook.com): Meta primește adresa ta IP, datele browserului și URL-ul pe care îl vizualizezi și poate seta cookie-uri în iframe, conform politicilor sale. Vitrina nu trimite nimic altundeva, nu are analitice și nu stochează nimic (istoricul există doar în memoria filei). Meta poate cere autentificare sau poate refuza afișarea unor conținuturi. Folosește modulele doar pentru afișare, conform termenilor Meta.",
+    "footerOk": "<span class=\"ok\">Merge, documentat oficial:</span> pagini publice — cronologie completă (Page Plugin); postări publice individuale de pe o pagină <em>sau</em> de pe un profil personal (Embedded Posts); video-uri și reels publice individuale, inclusiv live (Embedded Video Player).",
+    "footerMaybe": "<span class=\"maybe\">Poate funcționa, neconfirmat de Meta:</span> o postare sau un video anume dintr-un Grup sau Eveniment public — încearcă URL-ul exact al postării, nu al grupului/evenimentului în sine.",
+    "footerNo": "<span class=\"no\">Niciun modul oficial pentru:</span> cronologia întreagă a unui Grup, a unui Eveniment sau a unui anunț Marketplace; cronologia unui profil personal (doar postările individuale merg, nu fluxul complet).",
+    "footerP2": "Dacă vitrina rămâne goală după încărcare, un blocker de reclame/tracking poate opri iframe-urile către facebook.com — folosește linkul „deschide pe facebook.com” de sub vitrină ca variantă directă.",
+    "iframeTitlePrefix": "Conținut Facebook public: ",
+    "sectionGroup": "Grup",
+    "sectionEvent": "Eveniment",
+    "sectionMarketplace": "Marketplace",
+    "langAriaLabel": "Limbă"
+  },
+  "en": {
+    "title": "Vitrina — public Facebook content, no account",
+    "eyebrow": "Meta Social Plugins · no account",
+    "tagline": "Paste the URL of a public Facebook <strong>page</strong>, <strong>post</strong>, or <strong>video</strong>. Vitrina displays it through Meta's official modules — nothing is scraped, stored, or bypassed.",
+    "urlLabel": "Facebook URL",
+    "urlPlaceholder": "https://www.facebook.com/pagename or .../posts/123...",
+    "showBtn": "Show",
+    "typeLabel": "Content type",
+    "typeAuto": "Auto",
+    "typePage": "Page",
+    "typePost": "Post",
+    "typeVideo": "Video",
+    "widthLabel": "Width",
+    "widthCompact": "Compact",
+    "widthStandard": "Standard",
+    "widthWide": "Wide",
+    "heightLabel": "Height",
+    "heightShort": "Short",
+    "heightMedium": "Medium",
+    "heightTall": "Tall",
+    "errEmpty": "Enter a URL first.",
+    "errInvalid": "That doesn't look like a valid facebook.com URL. Expected format: https://www.facebook.com/...",
+    "emptyState": "The display case is empty.<br>Add a public URL above.",
+    "historyTitle": "Viewed this session",
+    "clearBtn": "clear display",
+    "specimenTypeLbl": "Type",
+    "specimenSourceLbl": "Source",
+    "specimenTimeLbl": "Loaded",
+    "experimentalCaveat": "· not officially confirmed by Meta",
+    "openLink": "open on facebook.com ↗",
+    "unsupportedSuffix": "— unsupported",
+    "unsupportedMsg": "<b>{label}</b> has no official embedding module at Meta — only Pages, Posts, and Videos are currently covered by Social Plugins.<br><br>If you have the URL of a specific post or video inside it, try that separately.",
+    "footerHeading": "How this actually works",
+    "footerP1": "This file doesn't download or store anything from Facebook. Pressing “Show” builds an <code>&lt;iframe&gt;</code> pointing at the official <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — the official mechanism Meta provides for showing public content on other sites (Meta Platform Terms apply). These iframe modules need no account or token from you. Separately, Meta announced token-free access to its oEmbed APIs on June 15, 2026 (Vitrina doesn't use them) — per Meta's announcement at the time of writing; check the official documentation.",
+    "footerPrivacy": "<strong>No account ≠ no tracking.</strong> The displayed content is loaded directly from Meta (facebook.com): Meta receives your IP address, browser details and the URL you view, and may set cookies inside the iframe, under its own policies. Vitrina sends nothing anywhere else, has no analytics and stores nothing (history lives only in the tab's memory). Meta may demand a login or refuse to show some content. Use the modules for display only, as Meta's terms require.",
+    "footerOk": "<span class=\"ok\">Works, officially documented:</span> public pages — full timeline (Page Plugin); individual public posts from a page <em>or</em> a personal profile (Embedded Posts); individual public videos and reels, including live (Embedded Video Player).",
+    "footerMaybe": "<span class=\"maybe\">May work, unconfirmed by Meta:</span> a specific post or video inside a public Group or Event — try the exact URL of the post, not of the Group/Event itself.",
+    "footerNo": "<span class=\"no\">No official module for:</span> the full timeline of a Group, an Event, or a Marketplace listing; the timeline of a personal profile (only individual posts work, not the full feed).",
+    "footerP2": "If the display stays empty after loading, an ad/tracking blocker may be stopping iframes to facebook.com — use the “open on facebook.com” link below the display case as a direct alternative.",
+    "iframeTitlePrefix": "Public Facebook content: ",
+    "sectionGroup": "Group",
+    "sectionEvent": "Event",
+    "sectionMarketplace": "Marketplace",
+    "langAriaLabel": "Language"
+  },
+  "fr": {
+    "title": "Vitrina — contenu Facebook public, sans compte",
+    "eyebrow": "Meta Social Plugins · sans compte",
+    "tagline": "Colle l'URL d'une <strong>page</strong>, d'une <strong>publication</strong> ou d'une <strong>vidéo</strong> Facebook déjà publique. Vitrina l'affiche via les modules officiels de Meta — rien n'est extrait, stocké ni contourné.",
+    "urlLabel": "URL Facebook",
+    "urlPlaceholder": "https://www.facebook.com/nompage ou .../posts/123...",
+    "showBtn": "Afficher",
+    "typeLabel": "Type de contenu",
+    "typeAuto": "Auto",
+    "typePage": "Page",
+    "typePost": "Publication",
+    "typeVideo": "Vidéo",
+    "widthLabel": "Largeur",
+    "widthCompact": "Compacte",
+    "widthStandard": "Standard",
+    "widthWide": "Large",
+    "heightLabel": "Hauteur",
+    "heightShort": "Basse",
+    "heightMedium": "Moyenne",
+    "heightTall": "Haute",
+    "errEmpty": "Saisis d'abord une URL.",
+    "errInvalid": "Cela ne ressemble pas à une URL facebook.com valide. Format attendu : https://www.facebook.com/...",
+    "emptyState": "La vitrine est vide.<br>Ajoute une URL publique ci-dessus.",
+    "historyTitle": "Consultés pendant cette session",
+    "clearBtn": "vider la vitrine",
+    "specimenTypeLbl": "Type",
+    "specimenSourceLbl": "Source",
+    "specimenTimeLbl": "Chargé",
+    "experimentalCaveat": "· non confirmé officiellement par Meta",
+    "openLink": "ouvrir sur facebook.com ↗",
+    "unsupportedSuffix": "— non pris en charge",
+    "unsupportedMsg": "<b>{label}</b> n'a pas de module d'intégration officiel chez Meta — seuls les Pages, Publications et Vidéos sont couverts par les Social Plugins pour l'instant.<br><br>Si tu as l'URL d'une publication ou d'une vidéo précise à l'intérieur, essaie-la séparément.",
+    "footerHeading": "Comment ça marche, exactement",
+    "footerP1": "Ce fichier ne télécharge ni ne stocke rien depuis Facebook. En appuyant sur « Afficher », il construit un <code>&lt;iframe&gt;</code> vers les modules officiels <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — le mécanisme officiel fourni par Meta pour afficher du contenu public sur d'autres sites (les conditions de la plateforme Meta s'appliquent). Ces modules iframe ne demandent ni compte ni jeton de votre part. Par ailleurs, Meta a annoncé le 15 juin 2026 un accès sans jeton à ses API oEmbed (Vitrina ne les utilise pas) — d'après l'annonce de Meta à la date de rédaction ; vérifiez la documentation officielle.",
+    "footerPrivacy": "<strong>Sans compte ≠ sans traçage.</strong> Le contenu affiché est chargé directement depuis Meta (facebook.com) : Meta reçoit votre adresse IP, des informations sur votre navigateur et l'URL que vous consultez, et peut déposer des cookies dans l'iframe, selon ses propres politiques. Vitrina n'envoie rien ailleurs, n'a pas d'analytique et ne stocke rien (l'historique n'existe que dans la mémoire de l'onglet). Meta peut exiger une connexion ou refuser d'afficher certains contenus. N'utilisez les modules que pour l'affichage, conformément aux conditions de Meta.",
+    "footerOk": "<span class=\"ok\">Fonctionne, documenté officiellement :</span> pages publiques — chronologie complète (Page Plugin) ; publications publiques individuelles d'une page <em>ou</em> d'un profil personnel (Embedded Posts) ; vidéos et reels publics individuels, y compris en direct (Embedded Video Player).",
+    "footerMaybe": "<span class=\"maybe\">Peut fonctionner, non confirmé par Meta :</span> une publication ou une vidéo précise à l'intérieur d'un Groupe ou d'un Événement public — essaie l'URL exacte de la publication, pas celle du Groupe/Événement lui-même.",
+    "footerNo": "<span class=\"no\">Aucun module officiel pour :</span> la chronologie complète d'un Groupe, d'un Événement ou d'une annonce Marketplace ; la chronologie d'un profil personnel (seules les publications individuelles fonctionnent, pas le fil complet).",
+    "footerP2": "Si la vitrine reste vide après le chargement, un bloqueur de publicités/traceurs empêche peut-être les iframes vers facebook.com — utilise le lien « ouvrir sur facebook.com » sous la vitrine comme solution directe.",
+    "iframeTitlePrefix": "Contenu Facebook public : ",
+    "sectionGroup": "Groupe",
+    "sectionEvent": "Événement",
+    "sectionMarketplace": "Marketplace",
+    "langAriaLabel": "Langue"
+  },
+  "it": {
+    "title": "Vitrina — contenuti pubblici Facebook, senza account",
+    "eyebrow": "Meta Social Plugins · senza account",
+    "tagline": "Incolla l'URL di una <strong>pagina</strong>, un <strong>post</strong> o un <strong>video</strong> Facebook già pubblico. Vitrina lo mostra tramite i moduli ufficiali di Meta — niente viene estratto, salvato o aggirato.",
+    "urlLabel": "URL Facebook",
+    "urlPlaceholder": "https://www.facebook.com/nomepagina o .../posts/123...",
+    "showBtn": "Mostra",
+    "typeLabel": "Tipo di contenuto",
+    "typeAuto": "Auto",
+    "typePage": "Pagina",
+    "typePost": "Post",
+    "typeVideo": "Video",
+    "widthLabel": "Larghezza",
+    "widthCompact": "Compatta",
+    "widthStandard": "Standard",
+    "widthWide": "Larga",
+    "heightLabel": "Altezza",
+    "heightShort": "Bassa",
+    "heightMedium": "Media",
+    "heightTall": "Alta",
+    "errEmpty": "Inserisci prima un URL.",
+    "errInvalid": "Non sembra un URL facebook.com valido. Formato previsto: https://www.facebook.com/...",
+    "emptyState": "La vetrina è vuota.<br>Aggiungi un URL pubblico qui sopra.",
+    "historyTitle": "Visualizzati in questa sessione",
+    "clearBtn": "svuota la vetrina",
+    "specimenTypeLbl": "Tipo",
+    "specimenSourceLbl": "Fonte",
+    "specimenTimeLbl": "Caricato",
+    "experimentalCaveat": "· non confermato ufficialmente da Meta",
+    "openLink": "apri su facebook.com ↗",
+    "unsupportedSuffix": "— non supportato",
+    "unsupportedMsg": "<b>{label}</b> non ha un modulo ufficiale di embedding presso Meta — al momento i Social Plugins coprono solo Pagine, Post e Video.<br><br>Se hai l'URL di un post o un video specifico al suo interno, provalo separatamente.",
+    "footerHeading": "Come funziona, esattamente",
+    "footerP1": "Questo file non scarica né salva nulla da Facebook. Premendo “Mostra” si costruisce un <code>&lt;iframe&gt;</code> verso i moduli ufficiali <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — il meccanismo ufficiale messo a disposizione da Meta per mostrare contenuti pubblici su altri siti (si applicano i Termini della piattaforma Meta). Questi moduli iframe non richiedono account né token da parte tua. Separatamente, Meta ha annunciato il 15 giugno 2026 l'accesso senza token alle sue API oEmbed (Vitrina non le usa) — secondo l'annuncio di Meta al momento della stesura; verifica la documentazione ufficiale.",
+    "footerPrivacy": "<strong>Senza account ≠ senza tracciamento.</strong> Il contenuto mostrato viene caricato direttamente da Meta (facebook.com): Meta riceve il tuo indirizzo IP, dati del browser e l'URL che visualizzi, e può impostare cookie nell'iframe secondo le proprie politiche. Vitrina non invia nulla altrove, non ha analitiche e non salva nulla (la cronologia esiste solo nella memoria della scheda). Meta può richiedere l'accesso o rifiutarsi di mostrare alcuni contenuti. Usa i moduli solo per la visualizzazione, come richiesto dai termini di Meta.",
+    "footerOk": "<span class=\"ok\">Funziona, documentato ufficialmente:</span> pagine pubbliche — cronologia completa (Page Plugin); post pubblici individuali da una pagina <em>o</em> da un profilo personale (Embedded Posts); video e reel pubblici individuali, incluse le dirette (Embedded Video Player).",
+    "footerMaybe": "<span class=\"maybe\">Potrebbe funzionare, non confermato da Meta:</span> un post o un video specifico all'interno di un Gruppo o Evento pubblico — prova l'URL esatto del post, non quello del Gruppo/Evento in sé.",
+    "footerNo": "<span class=\"no\">Nessun modulo ufficiale per:</span> la cronologia completa di un Gruppo, un Evento o un annuncio Marketplace; la cronologia di un profilo personale (funzionano solo i post individuali, non il flusso completo).",
+    "footerP2": "Se la vetrina resta vuota dopo il caricamento, un blocco pubblicità/tracker potrebbe impedire gli iframe verso facebook.com — usa il link “apri su facebook.com” sotto la vetrina come alternativa diretta.",
+    "iframeTitlePrefix": "Contenuto pubblico Facebook: ",
+    "sectionGroup": "Gruppo",
+    "sectionEvent": "Evento",
+    "sectionMarketplace": "Marketplace",
+    "langAriaLabel": "Lingua"
+  },
+  "es": {
+    "title": "Vitrina — contenido público de Facebook, sin cuenta",
+    "eyebrow": "Meta Social Plugins · sin cuenta",
+    "tagline": "Pega la URL de una <strong>página</strong>, <strong>publicación</strong> o <strong>vídeo</strong> de Facebook que ya sea público. Vitrina lo muestra mediante los módulos oficiales de Meta — no se extrae, guarda ni evita nada.",
+    "urlLabel": "URL de Facebook",
+    "urlPlaceholder": "https://www.facebook.com/nombrepagina o .../posts/123...",
+    "showBtn": "Mostrar",
+    "typeLabel": "Tipo de contenido",
+    "typeAuto": "Auto",
+    "typePage": "Página",
+    "typePost": "Publicación",
+    "typeVideo": "Vídeo",
+    "widthLabel": "Ancho",
+    "widthCompact": "Compacto",
+    "widthStandard": "Estándar",
+    "widthWide": "Amplio",
+    "heightLabel": "Altura",
+    "heightShort": "Baja",
+    "heightMedium": "Media",
+    "heightTall": "Alta",
+    "errEmpty": "Introduce primero una URL.",
+    "errInvalid": "Esto no parece una URL de facebook.com válida. Formato esperado: https://www.facebook.com/...",
+    "emptyState": "La vitrina está vacía.<br>Añade una URL pública arriba.",
+    "historyTitle": "Vistos en esta sesión",
+    "clearBtn": "vaciar la vitrina",
+    "specimenTypeLbl": "Tipo",
+    "specimenSourceLbl": "Fuente",
+    "specimenTimeLbl": "Cargado",
+    "experimentalCaveat": "· no confirmado oficialmente por Meta",
+    "openLink": "abrir en facebook.com ↗",
+    "unsupportedSuffix": "— no compatible",
+    "unsupportedMsg": "<b>{label}</b> no tiene un módulo oficial de inserción en Meta — de momento los Social Plugins solo cubren Páginas, Publicaciones y Vídeos.<br><br>Si tienes la URL de una publicación o vídeo concreto dentro, pruébala por separado.",
+    "footerHeading": "Cómo funciona, exactamente",
+    "footerP1": "Este archivo no descarga ni almacena nada de Facebook. Al pulsar «Mostrar», se construye un <code>&lt;iframe&gt;</code> hacia los módulos oficiales <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — el mecanismo oficial que ofrece Meta para mostrar contenido público en otros sitios (se aplican las Condiciones de la plataforma de Meta). Estos módulos iframe no piden cuenta ni token de tu parte. Por separado, Meta anunció el 15 de junio de 2026 acceso sin token a sus API oEmbed (Vitrina no las usa) — según el anuncio de Meta en el momento de escribir esto; consulta la documentación oficial.",
+    "footerPrivacy": "<strong>Sin cuenta ≠ sin rastreo.</strong> El contenido mostrado se carga directamente desde Meta (facebook.com): Meta recibe tu dirección IP, datos del navegador y la URL que consultas, y puede establecer cookies dentro del iframe según sus propias políticas. Vitrina no envía nada a otro sitio, no tiene analíticas y no guarda nada (el historial solo existe en la memoria de la pestaña). Meta puede exigir inicio de sesión o negarse a mostrar ciertos contenidos. Usa los módulos solo para mostrar, como exigen los términos de Meta.",
+    "footerOk": "<span class=\"ok\">Funciona, documentado oficialmente:</span> páginas públicas — cronología completa (Page Plugin); publicaciones públicas individuales de una página <em>o</em> de un perfil personal (Embedded Posts); vídeos y reels públicos individuales, incluidos los directos (Embedded Video Player).",
+    "footerMaybe": "<span class=\"maybe\">Puede funcionar, no confirmado por Meta:</span> una publicación o vídeo concreto dentro de un Grupo o Evento público — prueba la URL exacta de la publicación, no la del Grupo/Evento en sí.",
+    "footerNo": "<span class=\"no\">Ningún módulo oficial para:</span> la cronología completa de un Grupo, un Evento o un anuncio de Marketplace; la cronología de un perfil personal (solo funcionan las publicaciones individuales, no el flujo completo).",
+    "footerP2": "Si la vitrina permanece vacía tras cargar, un bloqueador de anuncios/rastreo podría estar deteniendo los iframes hacia facebook.com — usa el enlace «abrir en facebook.com» debajo de la vitrina como alternativa directa.",
+    "iframeTitlePrefix": "Contenido público de Facebook: ",
+    "sectionGroup": "Grupo",
+    "sectionEvent": "Evento",
+    "sectionMarketplace": "Marketplace",
+    "langAriaLabel": "Idioma"
+  },
+  "pt": {
+    "title": "Vitrina — conteúdo público do Facebook, sem conta",
+    "eyebrow": "Meta Social Plugins · sem conta",
+    "tagline": "Cola o URL de uma <strong>página</strong>, <strong>publicação</strong> ou <strong>vídeo</strong> do Facebook que já seja público. A Vitrina mostra-o através dos módulos oficiais da Meta — nada é extraído, guardado ou contornado.",
+    "urlLabel": "URL do Facebook",
+    "urlPlaceholder": "https://www.facebook.com/nomedapagina ou .../posts/123...",
+    "showBtn": "Mostrar",
+    "typeLabel": "Tipo de conteúdo",
+    "typeAuto": "Auto",
+    "typePage": "Página",
+    "typePost": "Publicação",
+    "typeVideo": "Vídeo",
+    "widthLabel": "Largura",
+    "widthCompact": "Compacta",
+    "widthStandard": "Standard",
+    "widthWide": "Larga",
+    "heightLabel": "Altura",
+    "heightShort": "Baixa",
+    "heightMedium": "Média",
+    "heightTall": "Alta",
+    "errEmpty": "Insere primeiro um URL.",
+    "errInvalid": "Isto não parece um URL facebook.com válido. Formato esperado: https://www.facebook.com/...",
+    "emptyState": "A vitrine está vazia.<br>Adiciona um URL público acima.",
+    "historyTitle": "Vistos nesta sessão",
+    "clearBtn": "esvaziar a vitrine",
+    "specimenTypeLbl": "Tipo",
+    "specimenSourceLbl": "Fonte",
+    "specimenTimeLbl": "Carregado",
+    "experimentalCaveat": "· não confirmado oficialmente pela Meta",
+    "openLink": "abrir no facebook.com ↗",
+    "unsupportedSuffix": "— não suportado",
+    "unsupportedMsg": "<b>{label}</b> não tem um módulo oficial de incorporação na Meta — por agora os Social Plugins cobrem apenas Páginas, Publicações e Vídeos.<br><br>Se tiveres o URL de uma publicação ou vídeo específico lá dentro, tenta esse em separado.",
+    "footerHeading": "Como funciona, exatamente",
+    "footerP1": "Este ficheiro não descarrega nem guarda nada do Facebook. Ao premires “Mostrar”, constrói-se um <code>&lt;iframe&gt;</code> para os módulos oficiais <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — o mecanismo oficial que a Meta disponibiliza para mostrar conteúdo público noutros sites (aplicam-se os Termos da Plataforma Meta). Estes módulos iframe não pedem conta nem token da tua parte. Separadamente, a Meta anunciou a 15 de junho de 2026 acesso sem token às suas APIs oEmbed (a Vitrina não as usa) — segundo o anúncio da Meta à data da escrita; confirma a documentação oficial.",
+    "footerPrivacy": "<strong>Sem conta ≠ sem rastreamento.</strong> O conteúdo mostrado é carregado diretamente da Meta (facebook.com): a Meta recebe o teu endereço IP, dados do navegador e o URL que consultas, e pode definir cookies no iframe, segundo as suas políticas. A Vitrina não envia nada para outro lado, não tem análise de utilização e não guarda nada (o histórico existe apenas na memória do separador). A Meta pode exigir início de sessão ou recusar mostrar certos conteúdos. Usa os módulos só para apresentação, como exigem os termos da Meta.",
+    "footerOk": "<span class=\"ok\">Funciona, documentado oficialmente:</span> páginas públicas — cronologia completa (Page Plugin); publicações públicas individuais de uma página <em>ou</em> de um perfil pessoal (Embedded Posts); vídeos e reels públicos individuais, incluindo diretos (Embedded Video Player).",
+    "footerMaybe": "<span class=\"maybe\">Pode funcionar, não confirmado pela Meta:</span> uma publicação ou vídeo específico dentro de um Grupo ou Evento público — tenta o URL exato da publicação, não o do Grupo/Evento em si.",
+    "footerNo": "<span class=\"no\">Nenhum módulo oficial para:</span> a cronologia completa de um Grupo, um Evento ou um anúncio do Marketplace; a cronologia de um perfil pessoal (só funcionam as publicações individuais, não o feed completo).",
+    "footerP2": "Se a vitrine ficar vazia depois de carregar, um bloqueador de anúncios/rastreio pode estar a impedir os iframes para facebook.com — usa o link “abrir no facebook.com” por baixo da vitrine como alternativa direta.",
+    "iframeTitlePrefix": "Conteúdo público do Facebook: ",
+    "sectionGroup": "Grupo",
+    "sectionEvent": "Evento",
+    "sectionMarketplace": "Marketplace",
+    "langAriaLabel": "Idioma"
+  },
+  "de": {
+    "title": "Vitrina — öffentliche Facebook-Inhalte, ohne Konto",
+    "eyebrow": "Meta Social Plugins · ohne Konto",
+    "tagline": "Füge die URL einer öffentlichen Facebook-<strong>Seite</strong>, eines <strong>Beitrags</strong> oder <strong>Videos</strong> ein. Vitrina zeigt es über die offiziellen Module von Meta an — nichts wird extrahiert, gespeichert oder umgangen.",
+    "urlLabel": "Facebook-URL",
+    "urlPlaceholder": "https://www.facebook.com/seitenname oder .../posts/123...",
+    "showBtn": "Anzeigen",
+    "typeLabel": "Inhaltstyp",
+    "typeAuto": "Auto",
+    "typePage": "Seite",
+    "typePost": "Beitrag",
+    "typeVideo": "Video",
+    "widthLabel": "Breite",
+    "widthCompact": "Kompakt",
+    "widthStandard": "Standard",
+    "widthWide": "Breit",
+    "heightLabel": "Höhe",
+    "heightShort": "Niedrig",
+    "heightMedium": "Mittel",
+    "heightTall": "Hoch",
+    "errEmpty": "Bitte zuerst eine URL eingeben.",
+    "errInvalid": "Das sieht nicht nach einer gültigen facebook.com-URL aus. Erwartetes Format: https://www.facebook.com/...",
+    "emptyState": "Die Vitrine ist leer.<br>Oben eine öffentliche URL hinzufügen.",
+    "historyTitle": "In dieser Sitzung angesehen",
+    "clearBtn": "Vitrine leeren",
+    "specimenTypeLbl": "Typ",
+    "specimenSourceLbl": "Quelle",
+    "specimenTimeLbl": "Geladen",
+    "experimentalCaveat": "· von Meta nicht offiziell bestätigt",
+    "openLink": "auf facebook.com öffnen ↗",
+    "unsupportedSuffix": "— nicht unterstützt",
+    "unsupportedMsg": "<b>{label}</b> hat bei Meta kein offizielles Einbettungsmodul — aktuell decken die Social Plugins nur Seiten, Beiträge und Videos ab.<br><br>Falls die URL eines bestimmten Beitrags oder Videos darin bekannt ist, bitte separat versuchen.",
+    "footerHeading": "Wie das genau funktioniert",
+    "footerP1": "Diese Datei lädt nichts von Facebook herunter und speichert nichts. Ein Klick auf „Anzeigen“ baut ein <code>&lt;iframe&gt;</code> zu den offiziellen <em>Facebook Social Plugins</em> auf (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — der offizielle Mechanismus, den Meta für die Anzeige öffentlicher Inhalte auf anderen Websites bereitstellt (die Meta-Plattformbedingungen gelten). Diese iframe-Module verlangen von dir weder Konto noch Token. Davon getrennt hat Meta am 15. Juni 2026 tokenfreien Zugriff auf seine oEmbed-APIs angekündigt (Vitrina nutzt sie nicht) — laut Meta-Ankündigung zum Zeitpunkt des Schreibens; bitte die offizielle Dokumentation prüfen.",
+    "footerPrivacy": "<strong>Ohne Konto ≠ ohne Tracking.</strong> Der angezeigte Inhalt wird direkt von Meta (facebook.com) geladen: Meta erhält deine IP-Adresse, Browserdaten und die angesehene URL und kann im iframe nach eigenen Richtlinien Cookies setzen. Vitrina sendet nichts anderswohin, hat keine Analytik und speichert nichts (der Verlauf existiert nur im Speicher des Tabs). Meta kann eine Anmeldung verlangen oder manche Inhalte nicht anzeigen. Nutze die Module nur zur Anzeige, wie es die Meta-Bedingungen verlangen.",
+    "footerOk": "<span class=\"ok\">Funktioniert, offiziell dokumentiert:</span> öffentliche Seiten — vollständige Chronik (Page Plugin); einzelne öffentliche Beiträge einer Seite <em>oder</em> eines persönlichen Profils (Embedded Posts); einzelne öffentliche Videos und Reels, auch Live-Videos (Embedded Video Player).",
+    "footerMaybe": "<span class=\"maybe\">Funktioniert vielleicht, von Meta nicht bestätigt:</span> ein bestimmter Beitrag oder ein Video innerhalb einer öffentlichen Gruppe oder Veranstaltung — die genaue URL des Beitrags versuchen, nicht die der Gruppe/Veranstaltung selbst.",
+    "footerNo": "<span class=\"no\">Kein offizielles Modul für:</span> die vollständige Chronik einer Gruppe, einer Veranstaltung oder eines Marketplace-Angebots; die Chronik eines persönlichen Profils (nur einzelne Beiträge funktionieren, nicht der komplette Feed).",
+    "footerP2": "Bleibt die Vitrine nach dem Laden leer, blockiert vielleicht ein Werbe-/Tracking-Blocker die iframes zu facebook.com — der Link „auf facebook.com öffnen“ unter der Vitrine funktioniert direkt.",
+    "iframeTitlePrefix": "Öffentlicher Facebook-Inhalt: ",
+    "sectionGroup": "Gruppe",
+    "sectionEvent": "Veranstaltung",
+    "sectionMarketplace": "Marketplace",
+    "langAriaLabel": "Sprache"
+  }
+};
+
+  var SUPPORTED_LANGS = ['ro','en','fr','it','es','pt','de'];
+  var LOCALE_MAP = { ro:'ro-RO', en:'en-GB', fr:'fr-FR', it:'it-IT', es:'es-ES', pt:'pt-PT', de:'de-DE' };
+  var TYPE_KEY = { page:'typePage', post:'typePost', video:'typeVideo' };
+
+  function detectInitialLang(){
+    var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+    for(var i=0;i<prefs.length;i++){
+      var code = (prefs[i] || '').toLowerCase().slice(0,2);
+      if(SUPPORTED_LANGS.indexOf(code) !== -1) return code;
+    }
+    return 'en';
+  }
+
+  var currentLang = detectInitialLang();
+
+  function t(key){
+    var dict = I18N[currentLang] || I18N.en;
+    return (key in dict) ? dict[key] : (I18N.en[key] || key);
+  }
+
+  var state = {
+    type: 'auto',
+    width: 500,
+    height: 700,
+    history: [],
+    current: null,     // {unsupported:false, url, type, experimental, reel} | {unsupported:true, url, sectionKey} | null
+    lastErrorKey: null
+  };
+
+  var form = document.getElementById('form');
+  var urlInput = document.getElementById('urlInput');
+  var errorMsg = document.getElementById('errorMsg');
+  var embedStage = document.getElementById('embedStage');
+  var sheen = document.getElementById('sheen');
+  var specimenLabel = document.getElementById('specimenLabel');
+  var lblType = document.getElementById('lblType');
+  var lblExperimental = document.getElementById('lblExperimental');
+  var lblSource = document.getElementById('lblSource');
+  var lblTime = document.getElementById('lblTime');
+  var lblOpen = document.getElementById('lblOpen');
+  var historyBlock = document.getElementById('historyBlock');
+  var historyRail = document.getElementById('historyRail');
+  var clearBtn = document.getElementById('clearBtn');
+  var langSelect = document.getElementById('langSelect');
+
+  function setupSegmented(id, dataAttr, onPick){
+    var group = document.getElementById(id);
+    var buttons = group.querySelectorAll('button');
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        buttons.forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+        btn.setAttribute('aria-pressed','true');
+        onPick(btn.getAttribute(dataAttr));
+      });
+    });
+  }
+
+  setupSegmented('typeSeg', 'data-type', function(v){ state.type = v; });
+  setupSegmented('widthSeg', 'data-width', function(v){ state.width = parseInt(v,10); });
+  setupSegmented('heightSeg', 'data-height', function(v){ state.height = parseInt(v,10); });
+
+  var UNSUPPORTED_SECTIONS = [
+    { re:/\/marketplace\//i, key:'sectionMarketplace' },
+    { re:/\/events\//i,      key:'sectionEvent' },
+    { re:/\/groups\//i,      key:'sectionGroup' }
+  ];
+
+  function hasVideoShape(u){ return /\/videos\/|\/watch\/?\?v=|fb\.watch\/|\/reel\//i.test(u); }
+  function hasPostShape(u){ return /\/posts\/|\/permalink\/|permalink\.php|\/photos\/|story_fbid/i.test(u); }
+  function isReelShape(u){ return /\/reel\//i.test(u); }
+  function matchSection(u){
+    for(var i=0;i<UNSUPPORTED_SECTIONS.length;i++){
+      if(UNSUPPORTED_SECTIONS[i].re.test(u)) return UNSUPPORTED_SECTIONS[i];
+    }
+    return null;
+  }
+
+  // Auto-classification: figures out which real plugin (if any) applies, and
+  // flags "experimental" whenever the URL sits inside a Group/Event section —
+  // Meta's Embedded Posts docs only name Pages and profiles explicitly, so a
+  // Group/Event post is a reasonable try, not a documented guarantee.
+  function classifyUrl(rawUrl){
+    var section = matchSection(rawUrl);
+    if(hasVideoShape(rawUrl)) return { type:'video', experimental:!!section, section:section, reel:isReelShape(rawUrl) };
+    if(hasPostShape(rawUrl))  return { type:'post',  experimental:!!section, section:section, reel:false };
+    if(section) return { type:'unsupported', section:section, reel:false };
+    return { type:'page', experimental:false, section:null, reel:false };
+  }
+
+  function normalizeUrl(raw){
+    var s = (raw || '').trim().replace(/^[<\s]+|[>\s]+$/g,'');
+    if(s && !/^https?:\/\//i.test(s)) s = 'https://' + s.replace(/^\/\//,'');
+    return s;
+  }
+
+  function isFacebookUrl(cleanUrl){
+    try{
+      var u = new URL(cleanUrl);
+      if(u.protocol !== 'http:' && u.protocol !== 'https:') return false;
+      if(u.username || u.password) return false;          // ocolire gen https://facebook.com@evil.tld sau credențiale în URL
+      if(cleanUrl.length > 2000) return false;
+      var host = u.hostname.replace(/^www\./,'').replace(/^m\./,'').replace(/^web\./,'');
+      return host === 'facebook.com' || host === 'fb.watch' || host === 'fb.com';
+    }catch(e){ return false; }
+  }
+
+  function buildEmbedSrc(type, cleanUrl, width, height){
+    var href = encodeURIComponent(cleanUrl);
+    if(type === 'video'){
+      return 'https://www.facebook.com/plugins/video.php?href=' + href + '&show_text=false&width=' + width;
+    }
+    if(type === 'post'){
+      return 'https://www.facebook.com/plugins/post.php?href=' + href + '&show_text=true&width=' + width;
+    }
+    return 'https://www.facebook.com/plugins/page.php?href=' + href +
+      '&tabs=timeline&width=' + width + '&height=' + height +
+      '&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true';
+  }
+
+  function showError(key){
+    state.lastErrorKey = key;
+    errorMsg.textContent = t(key);
+    errorMsg.classList.add('show');
+  }
+  function clearError(){
+    state.lastErrorKey = null;
+    errorMsg.textContent = '';
+    errorMsg.classList.remove('show');
+  }
+
+  function renderEmpty(){
+    embedStage.innerHTML = '<div class="empty-state">' + t('emptyState') + '</div>';
+    specimenLabel.style.display = 'none';
+  }
+
+  function playSheen(){
+    sheen.classList.remove('play');
+    void sheen.offsetWidth; // restart animation
+    sheen.classList.add('play');
+  }
+
+  // History stores the real plugin type actually used ('page'/'post'/'video'),
+  // or null when the last visit was an unsupported section — replaying it
+  // re-runs classification fresh rather than faking a plugin type that never existed.
+  function addToHistory(cleanUrl, realType){
+    state.history = state.history.filter(function(h){ return h.url !== cleanUrl; });
+    state.history.unshift({url:cleanUrl, realType: realType || null});
+    if(state.history.length > 8) state.history.length = 8;
+    renderHistory();
+  }
+
+  function renderHistory(){
+    if(state.history.length === 0){ historyBlock.style.display = 'none'; return; }
+    historyBlock.style.display = 'block';
+    historyRail.innerHTML = '';
+    state.history.forEach(function(h){
+      var tag = document.createElement('button');
+      tag.type = 'button';
+      tag.className = 'tag';
+      tag.textContent = h.url.replace(/^https?:\/\//,'');
+      tag.title = h.url;
+      tag.addEventListener('click', function(){
+        urlInput.value = h.url;
+        loadUrl(h.url, h.realType);
+      });
+      historyRail.appendChild(tag);
+    });
+  }
+
+  function setSpecimen(url, typeLabel, experimental){
+    specimenLabel.style.display = 'flex';
+    lblType.textContent = typeLabel;
+    lblExperimental.style.display = experimental ? 'inline' : 'none';
+    lblSource.textContent = (new URL(url)).hostname.replace(/^www\./,'');
+    lblTime.textContent = new Date().toLocaleTimeString(LOCALE_MAP[currentLang] || 'en-GB', {hour:'2-digit', minute:'2-digit'});
+    lblOpen.href = url;
+  }
+
+  function renderUnsupported(url, section){
+    var label = t(section.key);
+    embedStage.innerHTML = '<div class="unsupported-note">' + t('unsupportedMsg').replace('{label}', function(){ return label; }) + '</div>';
+    playSheen();
+    setSpecimen(url, label + ' ' + t('unsupportedSuffix'), false);
+  }
+
+  function renderEmbed(url, type, experimental, isReel){
+    var w = state.width;
+    var h;
+    if(type === 'page'){ h = state.height; w = Math.min(w, 500); }   // Page Plugin: lățime maximă 500
+    else if(isReel){ w = Math.min(state.width, 360); h = Math.max(state.height, 700); }
+    else { h = Math.max(state.height, 550); }
+    // pe ecrane înguste, nu depăși scena (cu minimele modulelor Meta: pagină 180, postare 350, video 220)
+    var avail = embedStage.clientWidth || w;
+    var minW = (type === 'page') ? 180 : (type === 'post' ? 350 : 220);
+    w = Math.max(Math.min(w, avail), minW);
+
+    var iframe = document.createElement('iframe');
+    iframe.src = buildEmbedSrc(type, url, w, h);
+    iframe.width = w;
+    iframe.height = h;
+    iframe.style.width = w + 'px';
+    iframe.style.height = h + 'px';
+    iframe.setAttribute('scrolling','auto');
+    iframe.setAttribute('allow','encrypted-media; picture-in-picture; web-share');
+    iframe.setAttribute('title', t('iframeTitlePrefix') + url);
+    iframe.loading = 'lazy';
+    iframe.setAttribute('referrerpolicy','strict-origin-when-cross-origin');   // doar originea (chiuta.github.io), niciodată calea/parametrii
+
+    embedStage.innerHTML = '';
+    embedStage.appendChild(iframe);
+    playSheen();
+    setSpecimen(url, t(TYPE_KEY[type] || 'typePage'), experimental);
+  }
+
+  function loadUrl(rawUrl, forcedRealType){
+    clearError();
+    var trimmed = normalizeUrl(rawUrl);
+    if(!trimmed){ showError('errEmpty'); return; }
+    if(!isFacebookUrl(trimmed)){
+      showError('errInvalid');
+      return;
+    }
+    trimmed = (new URL(trimmed)).href;   // formă canonică, validată
+
+    var result;
+    if(forcedRealType){
+      result = { type:forcedRealType, experimental:false, reel:isReelShape(trimmed) };
+    } else if(state.type !== 'auto'){
+      result = { type:state.type, experimental:false, reel:isReelShape(trimmed) };
+    } else {
+      result = classifyUrl(trimmed);
+    }
+
+    if(result.type === 'unsupported'){
+      state.current = { unsupported:true, url:trimmed, section:result.section };
+      renderUnsupported(trimmed, result.section);
+      addToHistory(trimmed, null);
+    } else {
+      state.current = { unsupported:false, url:trimmed, type:result.type, experimental:result.experimental, reel:result.reel };
+      renderEmbed(trimmed, result.type, result.experimental, result.reel);
+      addToHistory(trimmed, result.type);
+    }
+  }
+
+  function applyLanguage(lang){
+    currentLang = SUPPORTED_LANGS.indexOf(lang) !== -1 ? lang : 'en';
+    document.documentElement.lang = currentLang;
+    document.title = t('title');
+    langSelect.value = currentLang;
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      el.innerHTML = t(el.getAttribute('data-i18n-html'));
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
+    });
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(function(el){
+      el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label')));
+    });
+
+    if(state.lastErrorKey) errorMsg.textContent = t(state.lastErrorKey);
+
+    if(!state.current){
+      renderEmpty();
+    } else if(state.current.unsupported){
+      renderUnsupported(state.current.url, state.current.section);
+    } else {
+      var existing = embedStage.querySelector('iframe');
+      if(existing){
+        // schimbarea limbii nu reîncarcă embed-ul de la Meta: se actualizează doar etichetele
+        existing.setAttribute('title', t('iframeTitlePrefix') + state.current.url);
+        lblType.textContent = t(TYPE_KEY[state.current.type] || 'typePage');
+      } else {
+        renderEmbed(state.current.url, state.current.type, state.current.experimental, state.current.reel);
+      }
+    }
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    loadUrl(urlInput.value);
+  });
+
+  clearBtn.addEventListener('click', function(){
+    state.current = null;
+    renderEmpty();
+    urlInput.value = '';
+    urlInput.focus();
+  });
+
+  langSelect.addEventListener('change', function(){
+    applyLanguage(langSelect.value);
+  });
+
+  applyLanguage(currentLang);
+
+})();
+</script>
+
+</body>
+</html>
