@@ -6,7 +6,7 @@
 <title>Vitrina — conținut public Facebook, fără cont</title>
 <meta name="description" content="Vitrina afișează pagini, postări și video-uri publice Facebook prin modulele oficiale Meta, fără cont. Conținutul se încarcă de la Meta (IP și URL vizibile Meta). 7 limbi.">
 <meta name="theme-color" content="#0F1B1E">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; frame-src https://www.facebook.com https://*.facebook.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-rNzu5ii6iG2B4OIWBKrH4y12nko/aLRsuyv/yt+qJjI='; style-src 'unsafe-inline'; img-src data:; frame-src https://www.facebook.com https://*.facebook.com; base-uri 'none'; form-action 'none'">
 <style>
   :root{
     --ink:#0F1B1E;
@@ -367,7 +367,7 @@
   <form class="card" id="form">
     <label for="urlInput" data-i18n="urlLabel">URL Facebook</label>
     <div class="url-row">
-      <input type="text" id="urlInput" data-i18n-placeholder="urlPlaceholder" placeholder="https://www.facebook.com/numepagina sau .../posts/123..." autocomplete="off" spellcheck="false">
+      <input type="text" id="urlInput" data-i18n-placeholder="urlPlaceholder" placeholder="https://www.facebook.com/numepagina, @numepagina sau .../posts/123..." autocomplete="off" spellcheck="false">
       <button type="submit" class="btn-primary" data-i18n="showBtn">Afișează</button>
     </div>
 
@@ -454,7 +454,7 @@
     "eyebrow": "Meta Social Plugins · fără cont",
     "tagline": "Pune un URL de <strong>pagină</strong>, <strong>postare</strong> sau <strong>video</strong> Facebook care e deja public. Vitrina îl afișează prin modulele oficiale Meta — nu extrage, nu stochează, nu ocolește nimic.",
     "urlLabel": "URL Facebook",
-    "urlPlaceholder": "https://www.facebook.com/numepagina sau .../posts/123...",
+    "urlPlaceholder": "https://www.facebook.com/numepagina, @numepagina sau .../posts/123...",
     "showBtn": "Afișează",
     "typeLabel": "Tip conținut",
     "typeAuto": "Auto",
@@ -504,7 +504,7 @@
     "eyebrow": "Meta Social Plugins · no account",
     "tagline": "Paste the URL of a public Facebook <strong>page</strong>, <strong>post</strong>, or <strong>video</strong>. Vitrina displays it through Meta's official modules — nothing is scraped, stored, or bypassed.",
     "urlLabel": "Facebook URL",
-    "urlPlaceholder": "https://www.facebook.com/pagename or .../posts/123...",
+    "urlPlaceholder": "https://www.facebook.com/pagename, @pagename or .../posts/123...",
     "showBtn": "Show",
     "typeLabel": "Content type",
     "typeAuto": "Auto",
@@ -554,7 +554,7 @@
     "eyebrow": "Meta Social Plugins · sans compte",
     "tagline": "Colle l'URL d'une <strong>page</strong>, d'une <strong>publication</strong> ou d'une <strong>vidéo</strong> Facebook déjà publique. Vitrina l'affiche via les modules officiels de Meta — rien n'est extrait, stocké ni contourné.",
     "urlLabel": "URL Facebook",
-    "urlPlaceholder": "https://www.facebook.com/nompage ou .../posts/123...",
+    "urlPlaceholder": "https://www.facebook.com/nompage, @nompage ou .../posts/123...",
     "showBtn": "Afficher",
     "typeLabel": "Type de contenu",
     "typeAuto": "Auto",
@@ -604,7 +604,7 @@
     "eyebrow": "Meta Social Plugins · senza account",
     "tagline": "Incolla l'URL di una <strong>pagina</strong>, un <strong>post</strong> o un <strong>video</strong> Facebook già pubblico. Vitrina lo mostra tramite i moduli ufficiali di Meta — niente viene estratto, salvato o aggirato.",
     "urlLabel": "URL Facebook",
-    "urlPlaceholder": "https://www.facebook.com/nomepagina o .../posts/123...",
+    "urlPlaceholder": "https://www.facebook.com/nomepagina, @nomepagina o .../posts/123...",
     "showBtn": "Mostra",
     "typeLabel": "Tipo di contenuto",
     "typeAuto": "Auto",
@@ -654,7 +654,7 @@
     "eyebrow": "Meta Social Plugins · sin cuenta",
     "tagline": "Pega la URL de una <strong>página</strong>, <strong>publicación</strong> o <strong>vídeo</strong> de Facebook que ya sea público. Vitrina lo muestra mediante los módulos oficiales de Meta — no se extrae, guarda ni evita nada.",
     "urlLabel": "URL de Facebook",
-    "urlPlaceholder": "https://www.facebook.com/nombrepagina o .../posts/123...",
+    "urlPlaceholder": "https://www.facebook.com/nombrepagina, @nombrepagina o .../posts/123...",
     "showBtn": "Mostrar",
     "typeLabel": "Tipo de contenido",
     "typeAuto": "Auto",
@@ -704,7 +704,7 @@
     "eyebrow": "Meta Social Plugins · sem conta",
     "tagline": "Cola o URL de uma <strong>página</strong>, <strong>publicação</strong> ou <strong>vídeo</strong> do Facebook que já seja público. A Vitrina mostra-o através dos módulos oficiais da Meta — nada é extraído, guardado ou contornado.",
     "urlLabel": "URL do Facebook",
-    "urlPlaceholder": "https://www.facebook.com/nomedapagina ou .../posts/123...",
+    "urlPlaceholder": "https://www.facebook.com/nomedapagina, @nomedapagina ou .../posts/123...",
     "showBtn": "Mostrar",
     "typeLabel": "Tipo de conteúdo",
     "typeAuto": "Auto",
@@ -754,7 +754,7 @@
     "eyebrow": "Meta Social Plugins · ohne Konto",
     "tagline": "Füge die URL einer öffentlichen Facebook-<strong>Seite</strong>, eines <strong>Beitrags</strong> oder <strong>Videos</strong> ein. Vitrina zeigt es über die offiziellen Module von Meta an — nichts wird extrahiert, gespeichert oder umgangen.",
     "urlLabel": "Facebook-URL",
-    "urlPlaceholder": "https://www.facebook.com/seitenname oder .../posts/123...",
+    "urlPlaceholder": "https://www.facebook.com/seitenname, @seitenname oder .../posts/123...",
     "showBtn": "Anzeigen",
     "typeLabel": "Inhaltstyp",
     "typeAuto": "Auto",
@@ -908,6 +908,9 @@
     var found = String(raw || '').match(/(?:https?:\/\/)?(?:(?:www|m|web)\.)?(?:facebook\.com|fb\.watch|fb\.com)\/[^\s<>"']+/i);
     if(found && /\s/.test((raw || '').trim())) raw = found[0].replace(/[).,;!?]+$/,'');
     var s = (raw || '').trim().replace(/^[<\s]+|[>\s]+$/g,'');
+    // @numepagina (nume de pagină cu @) → https://www.facebook.com/numepagina
+    var hm = /^@([A-Za-z0-9.\-]{3,80})$/.exec(s);
+    if(hm) s = 'https://www.facebook.com/' + hm[1];
     if(s && !/^https?:\/\//i.test(s)) s = 'https://' + s.replace(/^\/\//,'');
     return s;
   }
@@ -1036,8 +1039,11 @@
   function loadUrl(rawUrl, forcedRealType){
     clearError();
     var trimmed = normalizeUrl(rawUrl);
-    if(!trimmed){ showError('errEmpty'); return; }
+    if(!trimmed){ state.current = null; renderEmpty(); showError('errEmpty'); return; }
     if(!isFacebookUrl(trimmed)){
+      // fără etichetă rămasă de la o afișare anterioară: vitrina se golește și eroarea e singurul mesaj
+      state.current = null;
+      renderEmpty();
       showError('errInvalid');
       return;
     }

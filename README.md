@@ -20,6 +20,8 @@ Lipești un URL Facebook deja public, iar aplicația construiește un `<iframe>`
 - Mesaj explicit pentru Grupuri, Evenimente și Marketplace (nu există modul oficial pentru cronologia lor).
 - Istoric al ultimelor 8 vizualizări, doar în memoria filei; etichetă cu tipul, sursa și ora, plus link „deschide pe facebook.com" (`rel="noopener noreferrer"`).
 - Schimbarea limbii nu reîncarcă embed-ul.
+- **Nume cu @:** `@numepagina` este acceptat ca prescurtare pentru `https://www.facebook.com/numepagina`.
+- După un URL invalid sau gol, vitrina se golește, astfel încât eticheta (tip/sursă) nu mai rămâne de la afișarea anterioară.
 - **Copiază codul iframe:** după afișare, un buton pune în clipboard codul `<iframe>` gata de lipit în propriul site (funcționează și fără rețea).
 - **Link Vitrina:** „copiază linkul Vitrinei” produce un link cu `#u=…` (URL, tip, lățime, înălțime). Deschis, linkul doar **precompletează** câmpurile; nimic nu se încarcă de la Meta până nu apeși „Afișează”. Partea după `#` nu este trimisă niciunui server.
 - **Lipire tolerantă:** dacă lipești un text întreg (de ex. un mesaj de partajare), se extrage primul URL facebook.com / fb.watch / fb.com; parametrii de urmărire (`fbclid`, `mibextid`, `utm_*` etc.) sunt eliminați din URL înainte de afișare.
@@ -39,7 +41,7 @@ Lipești un URL Facebook deja public, iar aplicația construiește un `<iframe>`
 
 - Stocare: nu se folosește `localStorage`, `sessionStorage`, cookie-uri sau IndexedDB; istoricul e doar în memoria filei.
 - Gazdă contactată, doar la apăsarea „Afișează": `www.facebook.com` (iframe-ul modulului). Meta primește adresa ta IP, datele browserului și URL-ul vizualizat și poate seta cookie-uri în iframe, potrivit politicilor ei. Referrer-ul trimis este limitat la origine (`strict-origin-when-cross-origin`).
-- Pagina are o politică CSP (`meta http-equiv`) care permite cadre doar către `facebook.com`; nu are scripturi sau resurse externe. Încărcarea reală a modulelor Meta nu a putut fi testată din mediul de dezvoltare (fără acces la rețea).
+- Pagina are o politică CSP (`meta http-equiv`) care permite cadre doar către `facebook.com`; scriptul propriu este autorizat prin hash SHA-256 (fără `'unsafe-inline'` în `script-src`); nu are scripturi sau resurse externe. Încărcarea reală a modulelor Meta nu a putut fi testată din mediul de dezvoltare (fără acces la rețea).
 - Nicio analitică; aplicația nu trimite date în altă parte. Nu cere permisiuni ale browserului.
 
 ## Limite și avertismente
@@ -72,5 +74,6 @@ Vitrina ("Display case") is a single-file page that shows public Facebook pages,
 
 ## Istoric / Changelog
 
+- **11 octombrie 2026** (runda 7) — `script-src` pe hash în loc de `'unsafe-inline'`; `@numepagina` acceptat; după URL invalid/gol vitrina se golește (fără etichetă învechită); placeholder actualizat în 7 limbi; testat (0 erori, axe 0 violări la 1280×800 și 360×740).
 - **11 octombrie 2026** — butoane „copiază codul iframe” și „copiază linkul Vitrinei” (precompletare prin `#u=`, fără încărcare automată), extragerea URL-ului din text lipit și eliminarea parametrilor de urmărire; texte în cele 7 limbi; testat (0 erori JS, axe-core 0 violări la 1280×800 și 360×740).
 - **11 octombrie 2026** — conținutul paginii este acum încadrat în reper `<main>` (header / main / footer), deci axe-core dă 0 violări la 1280×800 și 360×740; README aliniat cu fișierul LICENSE existent; verificat că afișarea unui embed construiește iframe-ul și că nu apar erori JS. Aplicația nu are număr de versiune.
