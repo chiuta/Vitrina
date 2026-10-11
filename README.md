@@ -2,6 +2,8 @@
 
 Afișează pagini, postări și video-uri publice Facebook într-un singur fișier HTML, prin modulele oficiale Meta (Social Plugins), fără cont, în 7 limbi.
 
+**Ultima actualizare:** 11 octombrie 2026
+
 **Live:** https://chiuta.github.io/Vitrina/
 
 ![Captura de ecran](screenshot.png)
@@ -51,7 +53,7 @@ Descarcă `index.html` și deschide-l în browser. Fără internet interfața se
 
 ## Licență
 
-Licența nu este încă declarată.
+MIT — vezi fișierul LICENSE (README-ul spunea anterior că licența nu e declarată, deși fișierul există în depozit).
 
 ## Autor
 
@@ -59,4 +61,12 @@ Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
 ## English summary
 
-Vitrina ("Display case") is a single-file page that shows public Facebook pages, posts and videos through Meta's official Social Plugins iframes, no account needed, in 7 languages. The URL is validated (facebook.com / fb.watch / fb.com only, no credentials). Nothing is stored, no analytics, but Meta loads the content directly, so it sees your IP and the URL you view: no account is not the same as no tracking. License not yet declared.
+Vitrina ("Display case") is a single-file page that shows public Facebook pages, posts and videos through Meta's official Social Plugins iframes, no account needed, in 7 languages. The URL is validated (facebook.com / fb.watch / fb.com only, no credentials). Nothing is stored, no analytics, but Meta loads the content directly, so it sees your IP and the URL you view: no account is not the same as no tracking. License: MIT, see LICENSE.
+
+## Surse verificate la 11.10.2026
+
+- Anunțul Meta din 15 iunie 2026 privind accesul fără token la API-urile oEmbed: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existența anunțului confirmată; Vitrina nu folosește oEmbed).
+
+## Istoric / Changelog
+
+- **11 octombrie 2026** — conținutul paginii este acum încadrat în reper `<main>` (header / main / footer), deci axe-core dă 0 violări la 1280×800 și 360×740; README aliniat cu fișierul LICENSE existent; verificat că afișarea unui embed construiește iframe-ul și că nu apar erori JS. Aplicația nu are număr de versiune.
