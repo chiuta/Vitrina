@@ -189,6 +189,9 @@
     display:none;
   }
   .error-msg.show{display:block;}
+  .info-msg{color:var(--glass);font-size:13px;margin:10px 0 0;display:none;}
+  .info-msg.show{display:block;}
+  .copy-status{color:var(--glass);}
 
   /* ---------- the vitrine (display case) ---------- */
   .vitrine{
@@ -397,6 +400,7 @@
     </div>
 
     <p class="error-msg" id="errorMsg" aria-live="polite"></p>
+    <p class="info-msg" id="infoMsg" role="status"></p>
   </form>
 
   <div class="history" id="historyBlock" style="display:none;">
@@ -417,7 +421,10 @@
     <span class="sep">·</span>
     <span><b data-i18n="specimenTimeLbl">Încărcat</b> <span id="lblTime">—</span></span>
     <a href="#" id="lblOpen" data-i18n="openLink" target="_blank" rel="noopener noreferrer">deschide pe facebook.com ↗</a>
+    <button type="button" class="btn-ghost" id="copyEmbedBtn" data-i18n="copyEmbed">copiază codul iframe</button>
+    <button type="button" class="btn-ghost" id="copyLinkBtn" data-i18n="copyLink">copiază linkul Vitrinei</button>
     <button type="button" class="btn-ghost" id="clearBtn" data-i18n="clearBtn">golește vitrina</button>
+    <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
   </div>
 
   </main>
@@ -467,6 +474,11 @@
     "emptyState": "Vitrina e goală.<br>Adaugă un URL public mai sus.",
     "historyTitle": "Vizualizate în această sesiune",
     "clearBtn": "golește vitrina",
+    "copyEmbed": "copiază codul iframe",
+    "copyLink": "copiază linkul Vitrinei",
+    "copiedMsg": "Copiat.",
+    "copyFailMsg": "Nu s-a putut copia automat; copiază manual din câmpul URL.",
+    "hashMsg": "URL preluat din link. Apasă „Afișează” ca să îl încarci (abia atunci este contactat Meta).",
     "specimenTypeLbl": "Tip",
     "specimenSourceLbl": "Sursă",
     "specimenTimeLbl": "Încărcat",
@@ -512,6 +524,11 @@
     "emptyState": "The display case is empty.<br>Add a public URL above.",
     "historyTitle": "Viewed this session",
     "clearBtn": "clear display",
+    "copyEmbed": "copy iframe code",
+    "copyLink": "copy Vitrina link",
+    "copiedMsg": "Copied.",
+    "copyFailMsg": "Could not copy automatically; copy it from the URL field.",
+    "hashMsg": "URL taken from the link. Press “Show” to load it (Meta is contacted only then).",
     "specimenTypeLbl": "Type",
     "specimenSourceLbl": "Source",
     "specimenTimeLbl": "Loaded",
@@ -557,6 +574,11 @@
     "emptyState": "La vitrine est vide.<br>Ajoute une URL publique ci-dessus.",
     "historyTitle": "Consultés pendant cette session",
     "clearBtn": "vider la vitrine",
+    "copyEmbed": "copier le code iframe",
+    "copyLink": "copier le lien Vitrina",
+    "copiedMsg": "Copié.",
+    "copyFailMsg": "Copie automatique impossible ; copiez depuis le champ URL.",
+    "hashMsg": "URL reprise du lien. Appuyez sur « Afficher » pour la charger (Meta n’est contacté qu’à ce moment).",
     "specimenTypeLbl": "Type",
     "specimenSourceLbl": "Source",
     "specimenTimeLbl": "Chargé",
@@ -602,6 +624,11 @@
     "emptyState": "La vetrina è vuota.<br>Aggiungi un URL pubblico qui sopra.",
     "historyTitle": "Visualizzati in questa sessione",
     "clearBtn": "svuota la vetrina",
+    "copyEmbed": "copia il codice iframe",
+    "copyLink": "copia il link Vitrina",
+    "copiedMsg": "Copiato.",
+    "copyFailMsg": "Copia automatica non riuscita; copia dal campo URL.",
+    "hashMsg": "URL presa dal link. Premi «Mostra» per caricarla (Meta viene contattato solo allora).",
     "specimenTypeLbl": "Tipo",
     "specimenSourceLbl": "Fonte",
     "specimenTimeLbl": "Caricato",
@@ -647,6 +674,11 @@
     "emptyState": "La vitrina está vacía.<br>Añade una URL pública arriba.",
     "historyTitle": "Vistos en esta sesión",
     "clearBtn": "vaciar la vitrina",
+    "copyEmbed": "copiar el código iframe",
+    "copyLink": "copiar el enlace de Vitrina",
+    "copiedMsg": "Copiado.",
+    "copyFailMsg": "No se pudo copiar automáticamente; cópialo del campo URL.",
+    "hashMsg": "URL tomada del enlace. Pulsa «Mostrar» para cargarla (Meta solo se contacta entonces).",
     "specimenTypeLbl": "Tipo",
     "specimenSourceLbl": "Fuente",
     "specimenTimeLbl": "Cargado",
@@ -692,6 +724,11 @@
     "emptyState": "A vitrine está vazia.<br>Adiciona um URL público acima.",
     "historyTitle": "Vistos nesta sessão",
     "clearBtn": "esvaziar a vitrine",
+    "copyEmbed": "copiar o código iframe",
+    "copyLink": "copiar o link da Vitrina",
+    "copiedMsg": "Copiado.",
+    "copyFailMsg": "Não foi possível copiar automaticamente; copie do campo URL.",
+    "hashMsg": "URL obtida do link. Prima «Mostrar» para a carregar (a Meta só é contactada nessa altura).",
     "specimenTypeLbl": "Tipo",
     "specimenSourceLbl": "Fonte",
     "specimenTimeLbl": "Carregado",
@@ -737,6 +774,11 @@
     "emptyState": "Die Vitrine ist leer.<br>Oben eine öffentliche URL hinzufügen.",
     "historyTitle": "In dieser Sitzung angesehen",
     "clearBtn": "Vitrine leeren",
+    "copyEmbed": "iframe-Code kopieren",
+    "copyLink": "Vitrina-Link kopieren",
+    "copiedMsg": "Kopiert.",
+    "copyFailMsg": "Automatisches Kopieren nicht möglich; aus dem URL-Feld kopieren.",
+    "hashMsg": "URL aus dem Link übernommen. „Anzeigen“ drücken, um sie zu laden (erst dann wird Meta kontaktiert).",
     "specimenTypeLbl": "Typ",
     "specimenSourceLbl": "Quelle",
     "specimenTimeLbl": "Geladen",
@@ -803,6 +845,10 @@
   var historyRail = document.getElementById('historyRail');
   var clearBtn = document.getElementById('clearBtn');
   var langSelect = document.getElementById('langSelect');
+  var infoMsg = document.getElementById('infoMsg');
+  var copyEmbedBtn = document.getElementById('copyEmbedBtn');
+  var copyLinkBtn = document.getElementById('copyLinkBtn');
+  var copyStatus = document.getElementById('copyStatus');
 
   function setupSegmented(id, dataAttr, onPick){
     var group = document.getElementById(id);
@@ -848,7 +894,19 @@
     return { type:'page', experimental:false, section:null, reel:false };
   }
 
+  var TRACKING_PARAMS = /^(fbclid|mibextid|__cft__\[0\]|__tn__|_rdr|sfnsn|rdid|share_url|ref|refsrc|utm_[a-z]+)$/i;
+  function stripTracking(href){
+    try{
+      var u = new URL(href), drop = [];
+      u.searchParams.forEach(function(v,k){ if(TRACKING_PARAMS.test(k)) drop.push(k); });
+      drop.forEach(function(k){ u.searchParams.delete(k); });
+      return u.href;
+    }catch(e){ return href; }
+  }
   function normalizeUrl(raw){
+    // dacă s-a lipit un text întreg (ex. mesaj de partajare), ia primul URL facebook.com / fb.watch / fb.com din el
+    var found = String(raw || '').match(/(?:https?:\/\/)?(?:(?:www|m|web)\.)?(?:facebook\.com|fb\.watch|fb\.com)\/[^\s<>"']+/i);
+    if(found && /\s/.test((raw || '').trim())) raw = found[0].replace(/[).,;!?]+$/,'');
     var s = (raw || '').trim().replace(/^[<\s]+|[>\s]+$/g,'');
     if(s && !/^https?:\/\//i.test(s)) s = 'https://' + s.replace(/^\/\//,'');
     return s;
@@ -935,6 +993,8 @@
     lblSource.textContent = (new URL(url)).hostname.replace(/^www\./,'');
     lblTime.textContent = new Date().toLocaleTimeString(LOCALE_MAP[currentLang] || 'en-GB', {hour:'2-digit', minute:'2-digit'});
     lblOpen.href = url;
+    copyEmbedBtn.style.display = (state.current && state.current.unsupported) ? 'none' : '';
+    infoMsg.classList.remove('show');
   }
 
   function renderUnsupported(url, section){
@@ -981,7 +1041,8 @@
       showError('errInvalid');
       return;
     }
-    trimmed = (new URL(trimmed)).href;   // formă canonică, validată
+    trimmed = stripTracking((new URL(trimmed)).href);   // formă canonică, validată, fără parametri de urmărire
+    urlInput.value = trimmed;
 
     var result;
     if(forcedRealType){
@@ -1023,6 +1084,7 @@
     });
 
     if(state.lastErrorKey) errorMsg.textContent = t(state.lastErrorKey);
+    if(infoMsg.classList.contains('show')) infoMsg.textContent = t('hashMsg');
 
     if(!state.current){
       renderEmpty();
@@ -1038,6 +1100,54 @@
         renderEmbed(state.current.url, state.current.type, state.current.experimental, state.current.reel);
       }
     }
+  }
+
+  function escAttr(v){ return String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function say(key){ copyStatus.textContent = t(key); clearTimeout(say._t); say._t = setTimeout(function(){ copyStatus.textContent = ''; }, 3500); }
+  function copyText(txt){
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = txt; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false; try{ ok = document.execCommand('copy'); }catch(e){}
+      ta.remove(); say(ok ? 'copiedMsg' : 'copyFailMsg');
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ say('copiedMsg'); }, fallback);
+    } else fallback();
+  }
+  function embedCode(){
+    var f = embedStage.querySelector('iframe');
+    if(!f) return '';
+    var isPage = state.current && state.current.type === 'page';
+    return '<iframe src="' + escAttr(f.src) + '" width="' + f.width + '" height="' + f.height +
+      '" style="border:none;overflow:hidden" scrolling="' + (isPage ? 'no' : 'auto') +
+      '" frameborder="0" allowfullscreen="true" allow="' + escAttr(f.getAttribute('allow') || '') +
+      '" title="' + escAttr(f.getAttribute('title') || '') + '" loading="lazy"></iframe>';
+  }
+  function shareLink(){
+    var c = state.current; if(!c) return '';
+    var h = '#u=' + encodeURIComponent(c.url) + '&t=' + state.type + '&w=' + state.width + '&h=' + state.height;
+    return location.href.split('#')[0] + h;
+  }
+  copyEmbedBtn.addEventListener('click', function(){ var c = embedCode(); if(c) copyText(c); });
+  copyLinkBtn.addEventListener('click', function(){ var l = shareLink(); if(l) copyText(l); });
+  function pickSeg(id, attr, val){
+    var b = document.querySelector('#' + id + ' [' + attr + '="' + val + '"]');
+    if(b) b.click();
+  }
+  // link Vitrina cu #u=...: doar precompletează câmpurile; nimic nu se încarcă de la Meta până la apăsarea „Afișează”
+  function applyHash(){
+    var m = /^#u=([^&]+)(?:&t=(auto|page|post|video))?(?:&w=(340|500|620))?(?:&h=(500|700|900))?$/.exec(location.hash);
+    if(!m) return;
+    var u; try{ u = decodeURIComponent(m[1]); }catch(e){ return; }
+    if(!isFacebookUrl(u)) return;
+    urlInput.value = u;
+    if(m[2]) pickSeg('typeSeg','data-type',m[2]);
+    if(m[3]) pickSeg('widthSeg','data-width',m[3]);
+    if(m[4]) pickSeg('heightSeg','data-height',m[4]);
+    infoMsg.textContent = t('hashMsg'); infoMsg.classList.add('show');
+    urlInput.focus();
   }
 
   form.addEventListener('submit', function(e){
@@ -1057,6 +1167,7 @@
   });
 
   applyLanguage(currentLang);
+  applyHash();
 
 })();
 </script>
