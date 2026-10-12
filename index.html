@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vitrina — conținut public Facebook, fără cont</title>
 <meta name="description" content="Vitrina afișează pagini, postări și video-uri publice Facebook prin modulele oficiale Meta, fără cont. Conținutul se încarcă de la Meta (IP și URL vizibile Meta). 7 limbi.">
+<meta name="application-version" content="1.0.0">
+<meta name="last-updated" content="2026-10-12">
 <meta name="theme-color" content="#0F1B1E">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-rNzu5ii6iG2B4OIWBKrH4y12nko/aLRsuyv/yt+qJjI='; style-src 'unsafe-inline'; img-src data:; frame-src https://www.facebook.com https://*.facebook.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-1tZ4d5lOgPFtiAad3e0Ta7/L9gesgLVE1rIVdq4h5oI='; style-src 'unsafe-inline'; img-src data:; frame-src https://www.facebook.com https://*.facebook.com; base-uri 'none'; form-action 'none'">
 <style>
   :root{
     --ink:#0F1B1E;
@@ -320,6 +322,7 @@
   footer .ok{color:var(--glass);}
   footer .maybe{color:var(--brass);}
   footer .no{color:var(--error);}
+  footer .app-ver{font-size:11.5px;margin:14px 0 0;}
 
   .unsupported-note{
     margin:auto;
@@ -439,6 +442,7 @@
       <li data-i18n-html="footerNo"><span class="no">Niciun modul oficial pentru:</span> cronologia întreagă a unui Grup, a unui Eveniment sau a unui anunț Marketplace; cronologia unui profil personal (doar postările individuale merg, nu fluxul complet).</li>
     </ul>
     <p data-i18n-html="footerP2">Dacă vitrina rămâne goală după încărcare, un blocker de reclame/tracking poate opri iframe-urile către facebook.com — folosește linkul „deschide pe facebook.com” de sub vitrină ca variantă directă.</p>
+    <p class="app-ver"><span data-i18n="verLabel">Versiune</span> <span id="app-version">v 1.0.0 · 2026-10-12</span></p>
   </footer>
 
 </div>
@@ -487,6 +491,7 @@
     "unsupportedSuffix": "— nesuportat",
     "unsupportedMsg": "<b>{label}</b> nu are un modul oficial de embedding la Meta — doar Pagini, Postări și Video-uri sunt acoperite de Social Plugins momentan.<br><br>Dacă ai URL-ul unei postări sau al unui video anume din interior, încearcă-l separat.",
     "footerHeading": "Cum funcționează, exact",
+    "verLabel": "Versiune",
     "footerP1": "Acest fișier nu descarcă și nu stochează nimic de pe Facebook. Când apeși „Afișează”, se construiește un <code>&lt;iframe&gt;</code> către modulele oficiale <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — mecanismul oficial pus la dispoziție de Meta pentru afișarea conținutului public pe alte site-uri (se aplică Termenii Platformei Meta). Aceste module iframe nu cer cont sau token din partea ta. Separat, Meta a anunțat la 15 iunie 2026 acces fără token la API-urile sale oEmbed (Vitrina nu le folosește) — conform anunțului Meta la data scrierii; verifică documentația oficială.",
     "footerPrivacy": "<strong>Fără cont ≠ fără urmărire.</strong> Conținutul afișat este încărcat direct de la Meta (facebook.com): Meta primește adresa ta IP, datele browserului și URL-ul pe care îl vizualizezi și poate seta cookie-uri în iframe, conform politicilor sale. Vitrina nu trimite nimic altundeva, nu are analitice și nu stochează nimic (istoricul există doar în memoria filei). Meta poate cere autentificare sau poate refuza afișarea unor conținuturi. Folosește modulele doar pentru afișare, conform termenilor Meta.",
     "footerOk": "<span class=\"ok\">Merge, documentat oficial:</span> pagini publice — cronologie completă (Page Plugin); postări publice individuale de pe o pagină <em>sau</em> de pe un profil personal (Embedded Posts); video-uri și reels publice individuale, inclusiv live (Embedded Video Player).",
@@ -537,6 +542,7 @@
     "unsupportedSuffix": "— unsupported",
     "unsupportedMsg": "<b>{label}</b> has no official embedding module at Meta — only Pages, Posts, and Videos are currently covered by Social Plugins.<br><br>If you have the URL of a specific post or video inside it, try that separately.",
     "footerHeading": "How this actually works",
+    "verLabel": "Version",
     "footerP1": "This file doesn't download or store anything from Facebook. Pressing “Show” builds an <code>&lt;iframe&gt;</code> pointing at the official <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — the official mechanism Meta provides for showing public content on other sites (Meta Platform Terms apply). These iframe modules need no account or token from you. Separately, Meta announced token-free access to its oEmbed APIs on June 15, 2026 (Vitrina doesn't use them) — per Meta's announcement at the time of writing; check the official documentation.",
     "footerPrivacy": "<strong>No account ≠ no tracking.</strong> The displayed content is loaded directly from Meta (facebook.com): Meta receives your IP address, browser details and the URL you view, and may set cookies inside the iframe, under its own policies. Vitrina sends nothing anywhere else, has no analytics and stores nothing (history lives only in the tab's memory). Meta may demand a login or refuse to show some content. Use the modules for display only, as Meta's terms require.",
     "footerOk": "<span class=\"ok\">Works, officially documented:</span> public pages — full timeline (Page Plugin); individual public posts from a page <em>or</em> a personal profile (Embedded Posts); individual public videos and reels, including live (Embedded Video Player).",
@@ -587,6 +593,7 @@
     "unsupportedSuffix": "— non pris en charge",
     "unsupportedMsg": "<b>{label}</b> n'a pas de module d'intégration officiel chez Meta — seuls les Pages, Publications et Vidéos sont couverts par les Social Plugins pour l'instant.<br><br>Si tu as l'URL d'une publication ou d'une vidéo précise à l'intérieur, essaie-la séparément.",
     "footerHeading": "Comment ça marche, exactement",
+    "verLabel": "Version",
     "footerP1": "Ce fichier ne télécharge ni ne stocke rien depuis Facebook. En appuyant sur « Afficher », il construit un <code>&lt;iframe&gt;</code> vers les modules officiels <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — le mécanisme officiel fourni par Meta pour afficher du contenu public sur d'autres sites (les conditions de la plateforme Meta s'appliquent). Ces modules iframe ne demandent ni compte ni jeton de votre part. Par ailleurs, Meta a annoncé le 15 juin 2026 un accès sans jeton à ses API oEmbed (Vitrina ne les utilise pas) — d'après l'annonce de Meta à la date de rédaction ; vérifiez la documentation officielle.",
     "footerPrivacy": "<strong>Sans compte ≠ sans traçage.</strong> Le contenu affiché est chargé directement depuis Meta (facebook.com) : Meta reçoit votre adresse IP, des informations sur votre navigateur et l'URL que vous consultez, et peut déposer des cookies dans l'iframe, selon ses propres politiques. Vitrina n'envoie rien ailleurs, n'a pas d'analytique et ne stocke rien (l'historique n'existe que dans la mémoire de l'onglet). Meta peut exiger une connexion ou refuser d'afficher certains contenus. N'utilisez les modules que pour l'affichage, conformément aux conditions de Meta.",
     "footerOk": "<span class=\"ok\">Fonctionne, documenté officiellement :</span> pages publiques — chronologie complète (Page Plugin) ; publications publiques individuelles d'une page <em>ou</em> d'un profil personnel (Embedded Posts) ; vidéos et reels publics individuels, y compris en direct (Embedded Video Player).",
@@ -637,6 +644,7 @@
     "unsupportedSuffix": "— non supportato",
     "unsupportedMsg": "<b>{label}</b> non ha un modulo ufficiale di embedding presso Meta — al momento i Social Plugins coprono solo Pagine, Post e Video.<br><br>Se hai l'URL di un post o un video specifico al suo interno, provalo separatamente.",
     "footerHeading": "Come funziona, esattamente",
+    "verLabel": "Versione",
     "footerP1": "Questo file non scarica né salva nulla da Facebook. Premendo “Mostra” si costruisce un <code>&lt;iframe&gt;</code> verso i moduli ufficiali <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — il meccanismo ufficiale messo a disposizione da Meta per mostrare contenuti pubblici su altri siti (si applicano i Termini della piattaforma Meta). Questi moduli iframe non richiedono account né token da parte tua. Separatamente, Meta ha annunciato il 15 giugno 2026 l'accesso senza token alle sue API oEmbed (Vitrina non le usa) — secondo l'annuncio di Meta al momento della stesura; verifica la documentazione ufficiale.",
     "footerPrivacy": "<strong>Senza account ≠ senza tracciamento.</strong> Il contenuto mostrato viene caricato direttamente da Meta (facebook.com): Meta riceve il tuo indirizzo IP, dati del browser e l'URL che visualizzi, e può impostare cookie nell'iframe secondo le proprie politiche. Vitrina non invia nulla altrove, non ha analitiche e non salva nulla (la cronologia esiste solo nella memoria della scheda). Meta può richiedere l'accesso o rifiutarsi di mostrare alcuni contenuti. Usa i moduli solo per la visualizzazione, come richiesto dai termini di Meta.",
     "footerOk": "<span class=\"ok\">Funziona, documentato ufficialmente:</span> pagine pubbliche — cronologia completa (Page Plugin); post pubblici individuali da una pagina <em>o</em> da un profilo personale (Embedded Posts); video e reel pubblici individuali, incluse le dirette (Embedded Video Player).",
@@ -687,6 +695,7 @@
     "unsupportedSuffix": "— no compatible",
     "unsupportedMsg": "<b>{label}</b> no tiene un módulo oficial de inserción en Meta — de momento los Social Plugins solo cubren Páginas, Publicaciones y Vídeos.<br><br>Si tienes la URL de una publicación o vídeo concreto dentro, pruébala por separado.",
     "footerHeading": "Cómo funciona, exactamente",
+    "verLabel": "Versión",
     "footerP1": "Este archivo no descarga ni almacena nada de Facebook. Al pulsar «Mostrar», se construye un <code>&lt;iframe&gt;</code> hacia los módulos oficiales <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — el mecanismo oficial que ofrece Meta para mostrar contenido público en otros sitios (se aplican las Condiciones de la plataforma de Meta). Estos módulos iframe no piden cuenta ni token de tu parte. Por separado, Meta anunció el 15 de junio de 2026 acceso sin token a sus API oEmbed (Vitrina no las usa) — según el anuncio de Meta en el momento de escribir esto; consulta la documentación oficial.",
     "footerPrivacy": "<strong>Sin cuenta ≠ sin rastreo.</strong> El contenido mostrado se carga directamente desde Meta (facebook.com): Meta recibe tu dirección IP, datos del navegador y la URL que consultas, y puede establecer cookies dentro del iframe según sus propias políticas. Vitrina no envía nada a otro sitio, no tiene analíticas y no guarda nada (el historial solo existe en la memoria de la pestaña). Meta puede exigir inicio de sesión o negarse a mostrar ciertos contenidos. Usa los módulos solo para mostrar, como exigen los términos de Meta.",
     "footerOk": "<span class=\"ok\">Funciona, documentado oficialmente:</span> páginas públicas — cronología completa (Page Plugin); publicaciones públicas individuales de una página <em>o</em> de un perfil personal (Embedded Posts); vídeos y reels públicos individuales, incluidos los directos (Embedded Video Player).",
@@ -737,6 +746,7 @@
     "unsupportedSuffix": "— não suportado",
     "unsupportedMsg": "<b>{label}</b> não tem um módulo oficial de incorporação na Meta — por agora os Social Plugins cobrem apenas Páginas, Publicações e Vídeos.<br><br>Se tiveres o URL de uma publicação ou vídeo específico lá dentro, tenta esse em separado.",
     "footerHeading": "Como funciona, exatamente",
+    "verLabel": "Versão",
     "footerP1": "Este ficheiro não descarrega nem guarda nada do Facebook. Ao premires “Mostrar”, constrói-se um <code>&lt;iframe&gt;</code> para os módulos oficiais <em>Facebook Social Plugins</em> (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — o mecanismo oficial que a Meta disponibiliza para mostrar conteúdo público noutros sites (aplicam-se os Termos da Plataforma Meta). Estes módulos iframe não pedem conta nem token da tua parte. Separadamente, a Meta anunciou a 15 de junho de 2026 acesso sem token às suas APIs oEmbed (a Vitrina não as usa) — segundo o anúncio da Meta à data da escrita; confirma a documentação oficial.",
     "footerPrivacy": "<strong>Sem conta ≠ sem rastreamento.</strong> O conteúdo mostrado é carregado diretamente da Meta (facebook.com): a Meta recebe o teu endereço IP, dados do navegador e o URL que consultas, e pode definir cookies no iframe, segundo as suas políticas. A Vitrina não envia nada para outro lado, não tem análise de utilização e não guarda nada (o histórico existe apenas na memória do separador). A Meta pode exigir início de sessão ou recusar mostrar certos conteúdos. Usa os módulos só para apresentação, como exigem os termos da Meta.",
     "footerOk": "<span class=\"ok\">Funciona, documentado oficialmente:</span> páginas públicas — cronologia completa (Page Plugin); publicações públicas individuais de uma página <em>ou</em> de um perfil pessoal (Embedded Posts); vídeos e reels públicos individuais, incluindo diretos (Embedded Video Player).",
@@ -787,6 +797,7 @@
     "unsupportedSuffix": "— nicht unterstützt",
     "unsupportedMsg": "<b>{label}</b> hat bei Meta kein offizielles Einbettungsmodul — aktuell decken die Social Plugins nur Seiten, Beiträge und Videos ab.<br><br>Falls die URL eines bestimmten Beitrags oder Videos darin bekannt ist, bitte separat versuchen.",
     "footerHeading": "Wie das genau funktioniert",
+    "verLabel": "Version",
     "footerP1": "Diese Datei lädt nichts von Facebook herunter und speichert nichts. Ein Klick auf „Anzeigen“ baut ein <code>&lt;iframe&gt;</code> zu den offiziellen <em>Facebook Social Plugins</em> auf (<code>plugins/page.php</code>, <code>plugins/post.php</code>, <code>plugins/video.php</code>) — der offizielle Mechanismus, den Meta für die Anzeige öffentlicher Inhalte auf anderen Websites bereitstellt (die Meta-Plattformbedingungen gelten). Diese iframe-Module verlangen von dir weder Konto noch Token. Davon getrennt hat Meta am 15. Juni 2026 tokenfreien Zugriff auf seine oEmbed-APIs angekündigt (Vitrina nutzt sie nicht) — laut Meta-Ankündigung zum Zeitpunkt des Schreibens; bitte die offizielle Dokumentation prüfen.",
     "footerPrivacy": "<strong>Ohne Konto ≠ ohne Tracking.</strong> Der angezeigte Inhalt wird direkt von Meta (facebook.com) geladen: Meta erhält deine IP-Adresse, Browserdaten und die angesehene URL und kann im iframe nach eigenen Richtlinien Cookies setzen. Vitrina sendet nichts anderswohin, hat keine Analytik und speichert nichts (der Verlauf existiert nur im Speicher des Tabs). Meta kann eine Anmeldung verlangen oder manche Inhalte nicht anzeigen. Nutze die Module nur zur Anzeige, wie es die Meta-Bedingungen verlangen.",
     "footerOk": "<span class=\"ok\">Funktioniert, offiziell dokumentiert:</span> öffentliche Seiten — vollständige Chronik (Page Plugin); einzelne öffentliche Beiträge einer Seite <em>oder</em> eines persönlichen Profils (Embedded Posts); einzelne öffentliche Videos und Reels, auch Live-Videos (Embedded Video Player).",

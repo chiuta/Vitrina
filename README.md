@@ -2,7 +2,7 @@
 
 Afișează pagini, postări și video-uri publice Facebook într-un singur fișier HTML, prin modulele oficiale Meta (Social Plugins), fără cont, în 7 limbi.
 
-**Ultima actualizare:** 11 octombrie 2026
+**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
 
 **Live:** https://chiuta.github.io/Vitrina/
 
@@ -74,6 +74,7 @@ Vitrina ("Display case") is a single-file page that shows public Facebook pages,
 
 ## Istoric / Changelog
 
+- 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație
 - **11 octombrie 2026** (runda 7) — `script-src` pe hash în loc de `'unsafe-inline'`; `@numepagina` acceptat; după URL invalid/gol vitrina se golește (fără etichetă învechită); placeholder actualizat în 7 limbi; testat (0 erori, axe 0 violări la 1280×800 și 360×740).
 - **11 octombrie 2026** — butoane „copiază codul iframe” și „copiază linkul Vitrinei” (precompletare prin `#u=`, fără încărcare automată), extragerea URL-ului din text lipit și eliminarea parametrilor de urmărire; texte în cele 7 limbi; testat (0 erori JS, axe-core 0 violări la 1280×800 și 360×740).
 - **11 octombrie 2026** — conținutul paginii este acum încadrat în reper `<main>` (header / main / footer), deci axe-core dă 0 violări la 1280×800 și 360×740; README aliniat cu fișierul LICENSE existent; verificat că afișarea unui embed construiește iframe-ul și că nu apar erori JS. Aplicația nu are număr de versiune.
