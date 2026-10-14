@@ -2,7 +2,7 @@
 
 Afișează pagini, postări și video-uri publice Facebook într-un singur fișier HTML, prin modulele oficiale Meta (Social Plugins), fără cont, în 7 limbi.
 
-**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
 
 **Live:** https://chiuta.github.io/Vitrina/
 
@@ -73,6 +73,8 @@ Vitrina ("Display case") is a single-file page that shows public Facebook pages,
 - Anunțul Meta din 15 iunie 2026 privind accesul fără token la API-urile oEmbed: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existența anunțului confirmată; Vitrina nu folosește oEmbed).
 
 ## Istoric / Changelog
+
+- 1.1.0 — 2026-10-14: Copie de rezervă și etichetare date (fff-kit).
 
 - 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație
 - **11 octombrie 2026** (runda 7) — `script-src` pe hash în loc de `'unsafe-inline'`; `@numepagina` acceptat; după URL invalid/gol vitrina se golește (fără etichetă învechită); placeholder actualizat în 7 limbi; testat (0 erori, axe 0 violări la 1280×800 și 360×740).
