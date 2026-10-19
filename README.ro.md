@@ -10,7 +10,7 @@ Afișează pagini, postări și video-uri publice Facebook într-un singur fiși
 
 **Live:** https://chiuta.github.io/Vitrina/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 ## Ce este
 

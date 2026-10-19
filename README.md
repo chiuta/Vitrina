@@ -10,7 +10,7 @@ Displays public Facebook pages, posts and videos in a single HTML file, through 
 
 **Live app:** https://chiuta.github.io/Vitrina/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.en.png)
 
 ## What it is
 

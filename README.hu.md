@@ -10,7 +10,7 @@ Nyilvános Facebook-oldalakat, bejegyzéseket és videókat jelenít meg egyetle
 
 **Online alkalmazás:** https://chiuta.github.io/Vitrina/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 ## Mi ez
 

@@ -10,7 +10,7 @@ Mostra pagine, post e video Facebook pubblici in un unico file HTML, tramite i m
 
 **Applicazione online:** https://chiuta.github.io/Vitrina/
 
-![Schermata](screenshot.png)
+![Schermata](screenshot.it.png)
 
 ## Che cos'è
 

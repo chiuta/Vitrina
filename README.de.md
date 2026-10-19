@@ -10,7 +10,7 @@ Zeigt öffentliche Facebook-Seiten, -Beiträge und -Videos in einer einzigen HTM
 
 **Online-Anwendung:** https://chiuta.github.io/Vitrina/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.de.png)
 
 ## Was es ist
 

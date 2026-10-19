@@ -10,7 +10,7 @@ Affiche des pages, publications et vidéos Facebook publiques dans un seul fichi
 
 **Application en ligne :** https://chiuta.github.io/Vitrina/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 ## De quoi s'agit-il
 

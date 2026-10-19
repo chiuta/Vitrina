@@ -10,7 +10,7 @@ Muestra páginas, publicaciones y vídeos públicos de Facebook en un único arc
 
 **Aplicación en línea:** https://chiuta.github.io/Vitrina/
 
-![Captura de pantalla](screenshot.png)
+![Captura de pantalla](screenshot.es.png)
 
 ## Qué es
 
