@@ -68,9 +68,9 @@ MIT — vezi fișierul LICENSE (README-ul spunea anterior că licența nu e decl
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Rezumat
 
-Vitrina ("Display case") is a single-file page that shows public Facebook pages, posts and videos through Meta's official Social Plugins iframes, no account needed, in 8 languages. The URL is validated (facebook.com / fb.watch / fb.com only, no credentials). Nothing is stored, no analytics, but Meta loads the content directly, so it sees your IP and the URL you view: no account is not the same as no tracking. License: MIT, see LICENSE.
+Vitrina este o pagină într-un singur fișier care afișează pagini, postări și videoclipuri publice de Facebook prin iframe-urile oficiale Social Plugins ale Meta, fără cont, în 8 limbi. URL-ul este validat (doar facebook.com / fb.watch / fb.com, fără credențiale). Nu se stochează nimic, nu există analitice, dar Meta încarcă direct conținutul, deci îți vede adresa IP și URL-ul vizualizat: fără cont nu înseamnă fără urmărire. Licență: MIT, vezi LICENSE.
 
 ## Surse verificate la 11.10.2026
 
