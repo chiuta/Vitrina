@@ -2,9 +2,11 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.1.0 · **Utolsó frissítés:** 2026-10-14
+**Verzió:** 1.2.0 · **Utolsó frissítés:** 2026-10-19
 
-Nyilvános Facebook-oldalakat, bejegyzéseket és videókat jelenít meg egyetlen HTML-fájlban, a Meta hivatalos moduljain (Social Plugins) keresztül, fiók nélkül, 7 nyelven.
+A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
+Nyilvános Facebook-oldalakat, bejegyzéseket és videókat jelenít meg egyetlen HTML-fájlban, a Meta hivatalos moduljain (Social Plugins) keresztül, fiók nélkül, 8 nyelven.
 
 **Online alkalmazás:** https://chiuta.github.io/Vitrina/
 
@@ -12,7 +14,7 @@ Nyilvános Facebook-oldalakat, bejegyzéseket és videókat jelenít meg egyetle
 
 ## Mi ez
 
-Beillesztesz egy már nyilvános Facebook-URL-t, az alkalmazás pedig `<iframe>`-et épít a `www.facebook.com` `plugins/page.php`, `plugins/post.php` vagy `plugins/video.php` címére. Felület: román, angol, francia, olasz, spanyol, portugál, német. Személyes, nem hivatalos projekt, a Metához semmi köze.
+Beillesztesz egy már nyilvános Facebook-URL-t, az alkalmazás pedig `<iframe>`-et épít a `www.facebook.com` `plugins/page.php`, `plugins/post.php` vagy `plugins/video.php` címére. Felület: román, angol, francia, olasz, spanyol, portugál, német, magyar. Személyes, nem hivatalos projekt, a Metához semmi köze.
 
 ## Funkciók
 
@@ -68,7 +70,7 @@ Alexio — Alexandru-Ionuț Chiuță, kapcsolat: alexio@trom.tf
 
 ## Összefoglaló
 
-A Vitrina („kirakat”) egyetlen fájlból álló oldal, amely nyilvános Facebook-oldalakat, bejegyzéseket és videókat jelenít meg a Meta hivatalos Social Plugins iframe-jein keresztül, fiók nélkül, 7 nyelven. Az URL ellenőrzött (csak facebook.com / fb.watch / fb.com, hitelesítő adatok nélkül). Semmi nem tárolódik, nincs analitika, de a Meta közvetlenül tölti be a tartalmat, így látja az IP-címedet és a megtekintett URL-t: a fiók nélküli használat nem azonos a követés nélkülivel. Licenc: MIT, lásd LICENSE.
+A Vitrina („kirakat”) egyetlen fájlból álló oldal, amely nyilvános Facebook-oldalakat, bejegyzéseket és videókat jelenít meg a Meta hivatalos Social Plugins iframe-jein keresztül, fiók nélkül, 8 nyelven. Az URL ellenőrzött (csak facebook.com / fb.watch / fb.com, hitelesítő adatok nélkül). Semmi nem tárolódik, nincs analitika, de a Meta közvetlenül tölti be a tartalmat, így látja az IP-címedet és a megtekintett URL-t: a fiók nélküli használat nem azonos a követés nélkülivel. Licenc: MIT, lásd LICENSE.
 
 ## 2026.10.11-én ellenőrzött források
 

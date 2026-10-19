@@ -2,9 +2,11 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.1.0 · **Last updated:** 2026-10-14
+**Version:** 1.2.0 · **Last updated:** 2026-10-19
 
-Displays public Facebook pages, posts and videos in a single HTML file, through Meta's official modules (Social Plugins), with no account, in 7 languages.
+Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
+Displays public Facebook pages, posts and videos in a single HTML file, through Meta's official modules (Social Plugins), with no account, in 8 languages.
 
 **Live app:** https://chiuta.github.io/Vitrina/
 
@@ -12,7 +14,7 @@ Displays public Facebook pages, posts and videos in a single HTML file, through 
 
 ## What it is
 
-You paste a Facebook URL that is already public, and the app builds an `<iframe>` pointing to `plugins/page.php`, `plugins/post.php` or `plugins/video.php` on `www.facebook.com`. Interface: Romanian, English, French, Italian, Spanish, Portuguese, German. It is a personal, unofficial project, unrelated to Meta.
+You paste a Facebook URL that is already public, and the app builds an `<iframe>` pointing to `plugins/page.php`, `plugins/post.php` or `plugins/video.php` on `www.facebook.com`. Interface: Romanian, English, French, Italian, Spanish, Portuguese, German, Hungarian. It is a personal, unofficial project, unrelated to Meta.
 
 ## Features
 
@@ -68,7 +70,7 @@ Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
 ## Summary
 
-Vitrina ("Display case") is a single-file page that shows public Facebook pages, posts and videos through Meta's official Social Plugins iframes, no account needed, in 7 languages. The URL is validated (facebook.com / fb.watch / fb.com only, no credentials). Nothing is stored, no analytics, but Meta loads the content directly, so it sees your IP and the URL you view: no account is not the same as no tracking. License: MIT, see LICENSE.
+Vitrina ("Display case") is a single-file page that shows public Facebook pages, posts and videos through Meta's official Social Plugins iframes, no account needed, in 8 languages. The URL is validated (facebook.com / fb.watch / fb.com only, no credentials). Nothing is stored, no analytics, but Meta loads the content directly, so it sees your IP and the URL you view: no account is not the same as no tracking. License: MIT, see LICENSE.
 
 ## Sources verified on 11.10.2026
 

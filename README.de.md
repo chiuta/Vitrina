@@ -2,9 +2,11 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.1.0 · **Zuletzt aktualisiert:** 2026-10-14
+**Version:** 1.2.0 · **Zuletzt aktualisiert:** 2026-10-19
 
-Zeigt öffentliche Facebook-Seiten, -Beiträge und -Videos in einer einzigen HTML-Datei über die offiziellen Module von Meta (Social Plugins), ohne Konto, in 7 Sprachen.
+Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
+Zeigt öffentliche Facebook-Seiten, -Beiträge und -Videos in einer einzigen HTML-Datei über die offiziellen Module von Meta (Social Plugins), ohne Konto, in 8 Sprachen.
 
 **Online-Anwendung:** https://chiuta.github.io/Vitrina/
 
@@ -12,7 +14,7 @@ Zeigt öffentliche Facebook-Seiten, -Beiträge und -Videos in einer einzigen HTM
 
 ## Was es ist
 
-Sie fügen eine bereits öffentliche Facebook-URL ein, und die Anwendung baut einen `<iframe>` auf `plugins/page.php`, `plugins/post.php` oder `plugins/video.php` von `www.facebook.com`. Oberfläche: Rumänisch, Englisch, Französisch, Italienisch, Spanisch, Portugiesisch, Deutsch. Es ist ein persönliches, inoffizielles Projekt ohne Verbindung zu Meta.
+Sie fügen eine bereits öffentliche Facebook-URL ein, und die Anwendung baut einen `<iframe>` auf `plugins/page.php`, `plugins/post.php` oder `plugins/video.php` von `www.facebook.com`. Oberfläche: Rumänisch, Englisch, Französisch, Italienisch, Spanisch, Portugiesisch, Deutsch, Ungarisch. Es ist ein persönliches, inoffizielles Projekt ohne Verbindung zu Meta.
 
 ## Funktionen
 
@@ -68,7 +70,7 @@ Alexio — Alexandru-Ionuț Chiuță, Kontakt: alexio@trom.tf
 
 ## Zusammenfassung
 
-Vitrina („Schaufenster“) ist eine Einzeldatei-Seite, die öffentliche Facebook-Seiten, -Beiträge und -Videos über die offiziellen Social-Plugins-iframes von Meta anzeigt, ohne Konto, in 7 Sprachen. Die URL wird validiert (nur facebook.com / fb.watch / fb.com, keine Zugangsdaten). Nichts wird gespeichert, keine Analysen, aber Meta lädt den Inhalt direkt und sieht daher Ihre IP und die angesehene URL: ohne Konto ist nicht dasselbe wie ohne Tracking. Lizenz: MIT, siehe LICENSE.
+Vitrina („Schaufenster“) ist eine Einzeldatei-Seite, die öffentliche Facebook-Seiten, -Beiträge und -Videos über die offiziellen Social-Plugins-iframes von Meta anzeigt, ohne Konto, in 8 Sprachen. Die URL wird validiert (nur facebook.com / fb.watch / fb.com, keine Zugangsdaten). Nichts wird gespeichert, keine Analysen, aber Meta lädt den Inhalt direkt und sieht daher Ihre IP und die angesehene URL: ohne Konto ist nicht dasselbe wie ohne Tracking. Lizenz: MIT, siehe LICENSE.
 
 ## Am 11.10.2026 geprüfte Quellen
 

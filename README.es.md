@@ -2,9 +2,11 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.1.0 · **Última actualización:** 2026-10-14
+**Versión:** 1.2.0 · **Última actualización:** 2026-10-19
 
-Muestra páginas, publicaciones y vídeos públicos de Facebook en un único archivo HTML, mediante los módulos oficiales de Meta (Social Plugins), sin cuenta, en 7 idiomas.
+Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
+Muestra páginas, publicaciones y vídeos públicos de Facebook en un único archivo HTML, mediante los módulos oficiales de Meta (Social Plugins), sin cuenta, en 8 idiomas.
 
 **Aplicación en línea:** https://chiuta.github.io/Vitrina/
 
@@ -12,7 +14,7 @@ Muestra páginas, publicaciones y vídeos públicos de Facebook en un único arc
 
 ## Qué es
 
-Pegas una URL de Facebook que ya es pública y la aplicación construye un `<iframe>` hacia `plugins/page.php`, `plugins/post.php` o `plugins/video.php` de `www.facebook.com`. Interfaz: rumano, inglés, francés, italiano, español, portugués, alemán. Es un proyecto personal, no oficial, sin relación con Meta.
+Pegas una URL de Facebook que ya es pública y la aplicación construye un `<iframe>` hacia `plugins/page.php`, `plugins/post.php` o `plugins/video.php` de `www.facebook.com`. Interfaz: rumano, inglés, francés, italiano, español, portugués, alemán, húngaro. Es un proyecto personal, no oficial, sin relación con Meta.
 
 ## Funciones
 
@@ -68,7 +70,7 @@ Alexio — Alexandru-Ionuț Chiuță, contacto: alexio@trom.tf
 
 ## Resumen
 
-Vitrina («escaparate») es una página de un único archivo que muestra páginas, publicaciones y vídeos públicos de Facebook mediante los iframes oficiales de los Social Plugins de Meta, sin cuenta, en 7 idiomas. La URL se valida (solo facebook.com / fb.watch / fb.com, sin credenciales). No se almacena nada, no hay analítica, pero Meta carga directamente el contenido, por lo que ve tu IP y la URL que visualizas: sin cuenta no es lo mismo que sin rastreo. Licencia: MIT, véase LICENSE.
+Vitrina («escaparate») es una página de un único archivo que muestra páginas, publicaciones y vídeos públicos de Facebook mediante los iframes oficiales de los Social Plugins de Meta, sin cuenta, en 8 idiomas. La URL se valida (solo facebook.com / fb.watch / fb.com, sin credenciales). No se almacena nada, no hay analítica, pero Meta carga directamente el contenido, por lo que ve tu IP y la URL que visualizas: sin cuenta no es lo mismo que sin rastreo. Licencia: MIT, véase LICENSE.
 
 ## Fuentes verificadas el 11.10.2026
 
