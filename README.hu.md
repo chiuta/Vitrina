@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.2.0 · **Utolsó frissítés:** 2026-10-19
+**Verzió:** 1.2.1 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ A Vitrina („kirakat”) egyetlen fájlból álló oldal, amely nyilvános Face
 - A Meta 2026. június 15-i bejelentése az oEmbed API-k tokenmentes eléréséről: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (a bejelentés létezése megerősítve; a Vitrina nem használ oEmbedet).
 
 ## Előzmények / Changelog
+
+### 1.2.1 — 2026-10-22
+- Beágyazási hiba felismerése: ha a Meta-keret 12 másodpercen belül nem jelzi a betöltést, üzenet jelenik meg (blokkoló, nem nyilvános oldal vagy nincs válasz) közvetlen facebook.com-hivatkozással.
+- Mobil: nincs 12 px alatti szöveg, az érintési célpontok legalább 24 px-esek (WCAG 2.5.8).
 
 - 1.1.0 — 2026-10-14: biztonsági mentés és adatcímkézés (fff-kit).
 

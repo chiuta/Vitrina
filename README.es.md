@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.2.0 · **Última actualización:** 2026-10-19
+**Versión:** 1.2.1 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ Vitrina («escaparate») es una página de un único archivo que muestra página
 - Anuncio de Meta del 15 de junio de 2026 sobre el acceso sin token a las API oEmbed: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existencia del anuncio confirmada; Vitrina no usa oEmbed).
 
 ## Historial / Changelog
+
+### 1.2.1 — 2026-10-22
+- Detección de fallo del embed: si el marco de Meta no informa de su carga en 12 segundos, aparece un mensaje (bloqueador, página no pública o sin respuesta) con un enlace directo a facebook.com.
+- Móvil: ningún texto por debajo de 12 px y áreas táctiles de al menos 24 px (WCAG 2.5.8).
 
 - 1.1.0 — 2026-10-14: copia de seguridad y etiquetado de datos (fff-kit).
 

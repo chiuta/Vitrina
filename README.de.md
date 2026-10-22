@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.2.0 · **Zuletzt aktualisiert:** 2026-10-19
+**Version:** 1.2.1 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ Vitrina („Schaufenster“) ist eine Einzeldatei-Seite, die öffentliche Facebo
 - Meta-Ankündigung vom 15. Juni 2026 zum tokenlosen Zugriff auf die oEmbed-APIs: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (Existenz der Ankündigung bestätigt; Vitrina verwendet oEmbed nicht).
 
 ## Verlauf / Changelog
+
+### 1.2.1 — 2026-10-22
+- Erkennung fehlgeschlagener Einbettung: Meldet der Meta-Frame nicht innerhalb von 12 Sekunden das Laden, erscheint eine Meldung (Blocker, nicht öffentliche Seite oder keine Antwort) mit direktem Link zu facebook.com.
+- Mobil: kein Text unter 12 px und Touch-Ziele von mindestens 24 px (WCAG 2.5.8).
 
 - 1.1.0 — 2026-10-14: Sicherungskopie und Datenkennzeichnung (fff-kit).
 

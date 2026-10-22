@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.0 · **Última atualização:** 2026-10-19
+**Versão:** 1.2.1 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ A Vitrina («montra») é uma página de um único ficheiro que apresenta págin
 - Anúncio da Meta de 15 de junho de 2026 sobre o acesso sem token às API oEmbed: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existência do anúncio confirmada; a Vitrina não utiliza oEmbed).
 
 ## Histórico / Changelog
+
+### 1.2.1 — 2026-10-22
+- Deteção de falha do embed: se o quadro da Meta não indicar o carregamento em 12 segundos, surge uma mensagem (bloqueador, página não pública ou sem resposta) com ligação direta ao facebook.com.
+- Telemóvel: nenhum texto abaixo de 12 px e áreas táteis de pelo menos 24 px (WCAG 2.5.8).
 
 - 1.1.0 — 2026-10-14: cópia de segurança e etiquetagem de dados (fff-kit).
 
