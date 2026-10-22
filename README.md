@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.2.2 · **Last updated:** 2026-10-22
+**Version:** 1.2.3 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,9 @@ Vitrina ("Display case") is a single-file page that shows public Facebook pages,
 - Meta's announcement of 15 June 2026 on tokenless access to the oEmbed APIs: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existence of the announcement confirmed; Vitrina does not use oEmbed).
 
 ## History / Changelog
+
+### 1.2.3 — 2026-10-22
+- fff-kit 1.1.4: touch targets and minimum text size
 
 ### 1.2.2 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 600,000 iterations, anti-clickjacking protection.

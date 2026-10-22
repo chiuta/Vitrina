@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.2 · **Ultima actualizare:** 2026-10-22
+**Versiune:** 1.2.3 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,9 @@ Vitrina este o pagină într-un singur fișier care afișează pagini, postări 
 - Anunțul Meta din 15 iunie 2026 privind accesul fără token la API-urile oEmbed: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existența anunțului confirmată; Vitrina nu folosește oEmbed).
 
 ## Istoric / Changelog
+
+### 1.2.3 — 2026-10-22
+- fff-kit 1.1.4: ținte tactile și text minim
 
 ### 1.2.2 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 600 000 de iterații, protecție anti-clickjacking.
