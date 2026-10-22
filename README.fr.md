@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.2.1 · **Dernière mise à jour :** 2026-10-22
+**Version :** 1.2.2 · **Dernière mise à jour :** 2026-10-22
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,9 @@ Vitrina (« vitrine ») est une page en un seul fichier qui affiche des pages, p
 - Annonce de Meta du 15 juin 2026 sur l'accès sans jeton aux API oEmbed : https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existence de l'annonce confirmée ; Vitrina n'utilise pas oEmbed).
 
 ## Historique / Changelog
+
+### 1.2.2 — 2026-10-22
+- fff-kit 1.1.2 : PBKDF2 à 600 000 itérations, protection anti-clickjacking.
 
 ### 1.2.1 — 2026-10-22
 - Détection d'échec de l'embed : si le cadre Meta ne signale pas son chargement en 12 secondes, un message apparaît (bloqueur, page non publique ou absence de réponse) avec un lien direct vers facebook.com.
