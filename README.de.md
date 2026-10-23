@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.2.4 · **Zuletzt aktualisiert:** 2026-10-23
+**Version:** 1.2.5 · **Zuletzt aktualisiert:** 2026-10-23
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ Vitrina („Schaufenster“) ist eine Einzeldatei-Seite, die öffentliche Facebo
 - Meta-Ankündigung vom 15. Juni 2026 zum tokenlosen Zugriff auf die oEmbed-APIs: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (Existenz der Ankündigung bestätigt; Vitrina verwendet oEmbed nicht).
 
 ## Verlauf / Changelog
+
+### 1.2.5 — 2026-10-23
+- Ein eingefügter Text mit z. B. `https://evilfacebook.com/foo` lädt nicht mehr `facebook.com/foo` (die URL wird nur übernommen, wenn `facebook.com`/`fb.watch`/`fb.com` ein ganzer Hostname ist).
+- Auf Touchscreens (`pointer: coarse`) haben Sprachauswahl, Schaltflächen und Verlaufs-Tags ein Touch-Ziel von 44 px.
 
 ### 1.2.3 — 2026-10-22
 - fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße

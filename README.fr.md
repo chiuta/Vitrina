@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.2.4 · **Dernière mise à jour :** 2026-10-23
+**Version :** 1.2.5 · **Dernière mise à jour :** 2026-10-23
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ Vitrina (« vitrine ») est une page en un seul fichier qui affiche des pages, p
 - Annonce de Meta du 15 juin 2026 sur l'accès sans jeton aux API oEmbed : https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existence de l'annonce confirmée ; Vitrina n'utilise pas oEmbed).
 
 ## Historique / Changelog
+
+### 1.2.5 — 2026-10-23
+- Un texte collé contenant par ex. `https://evilfacebook.com/foo` ne charge plus `facebook.com/foo` (l'URL n'est retenue que si `facebook.com`/`fb.watch`/`fb.com` est un nom d'hôte entier).
+- Sur écrans tactiles (`pointer: coarse`), le sélecteur de langue, les boutons et les étiquettes d'historique ont une cible tactile de 44 px.
 
 ### 1.2.3 — 2026-10-22
 - fff-kit 1.1.4 : cibles tactiles et taille de texte minimale

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.4 · **Última atualização:** 2026-10-23
+**Versão:** 1.2.5 · **Última atualização:** 2026-10-23
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ A Vitrina («montra») é uma página de um único ficheiro que apresenta págin
 - Anúncio da Meta de 15 de junho de 2026 sobre o acesso sem token às API oEmbed: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existência do anúncio confirmada; a Vitrina não utiliza oEmbed).
 
 ## Histórico / Changelog
+
+### 1.2.5 — 2026-10-23
+- Um texto colado que contenha p. ex. `https://evilfacebook.com/foo` já não carrega `facebook.com/foo` (o URL só é tomado quando `facebook.com`/`fb.watch`/`fb.com` é um nome de anfitrião inteiro).
+- Em ecrãs táteis (`pointer: coarse`) o seletor de idioma, os botões e as etiquetas do histórico têm uma área tátil de 44 px.
 
 ### 1.2.3 — 2026-10-22
 - fff-kit 1.1.4: alvos táteis e texto mínimo
