@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.4 · **Ultima actualizare:** 2026-10-23
+**Versiune:** 1.2.5 · **Ultima actualizare:** 2026-10-23
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ Vitrina este o pagină într-un singur fișier care afișează pagini, postări 
 - Anunțul Meta din 15 iunie 2026 privind accesul fără token la API-urile oEmbed: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existența anunțului confirmată; Vitrina nu folosește oEmbed).
 
 ## Istoric / Changelog
+
+### 1.2.5 — 2026-10-23
+- Un text lipit care conține de exemplu `https://evilfacebook.com/foo` nu mai încarcă `facebook.com/foo` (URL-ul se ia doar când `facebook.com`/`fb.watch`/`fb.com` este un nume de gazdă întreg).
+- Pe ecrane tactile (`pointer: coarse`) selectorul de limbă, butoanele și etichetele din istoric au o țintă tactilă de 44 px.
 
 ### 1.2.3 — 2026-10-22
 - fff-kit 1.1.4: ținte tactile și text minim

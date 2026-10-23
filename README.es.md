@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.2.4 · **Última actualización:** 2026-10-23
+**Versión:** 1.2.5 · **Última actualización:** 2026-10-23
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ Vitrina («escaparate») es una página de un único archivo que muestra página
 - Anuncio de Meta del 15 de junio de 2026 sobre el acceso sin token a las API oEmbed: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existencia del anuncio confirmada; Vitrina no usa oEmbed).
 
 ## Historial / Changelog
+
+### 1.2.5 — 2026-10-23
+- Un texto pegado que contenga p. ej. `https://evilfacebook.com/foo` ya no carga `facebook.com/foo` (la URL solo se toma cuando `facebook.com`/`fb.watch`/`fb.com` es un nombre de host completo).
+- En pantallas táctiles (`pointer: coarse`) el selector de idioma, los botones y las etiquetas del historial tienen un área táctil de 44 px.
 
 ### 1.2.3 — 2026-10-22
 - fff-kit 1.1.4: objetivos táctiles y texto mínimo

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.2.4 · **Utolsó frissítés:** 2026-10-23
+**Verzió:** 1.2.5 · **Utolsó frissítés:** 2026-10-23
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -77,6 +77,10 @@ A Vitrina („kirakat”) egyetlen fájlból álló oldal, amely nyilvános Face
 - A Meta 2026. június 15-i bejelentése az oEmbed API-k tokenmentes eléréséről: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (a bejelentés létezése megerősítve; a Vitrina nem használ oEmbedet).
 
 ## Előzmények / Changelog
+
+### 1.2.5 — 2026-10-23
+- A beillesztett szöveg, amely pl. `https://evilfacebook.com/foo`-t tartalmaz, már nem tölti be a `facebook.com/foo`-t (az URL-t csak akkor veszi át, ha a `facebook.com`/`fb.watch`/`fb.com` teljes gazdanév).
+- Érintőképernyőn (`pointer: coarse`) a nyelvválasztó, a gombok és az előzmény-címkék 44 px-es érintési célpontot kapnak.
 
 ### 1.2.3 — 2026-10-22
 - fff-kit 1.1.4: érintési célpontok és minimális szövegméret
