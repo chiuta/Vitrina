@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.2.6 · **Last updated:** 2026-10-26
+**Version:** 2.0.0 · **Last updated:** 2026-10-26
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -29,6 +29,7 @@ You paste a Facebook URL that is already public, and the app builds an `<iframe>
 - **Copy iframe code:** after display, a button puts the `<iframe>` code, ready to paste into your own site, on the clipboard (it also works without a network).
 - **Vitrina link:** "copy the Vitrina link" produces a link with `#u=…` (URL, type, width, height). When opened, the link only **pre-fills** the fields; nothing is loaded from Meta until you press "Display". The part after `#` is not sent to any server.
 - **Tolerant paste:** if you paste a whole text (e.g. a sharing message), the first facebook.com / fb.watch / fb.com URL is extracted; tracking parameters (`fbclid`, `mibextid`, `utm_*`, etc.) are removed from the URL before display.
+- **Two-click embed (2.0.0):** “two-click code” generates a placeholder (privacy notice + button) that does not contact Meta until your site’s visitor accepts; only then is the iframe created. “Test the placeholder” previews it before publishing, and “copy the whole history” copies the codes of every history item.
 
 ## How to use
 
