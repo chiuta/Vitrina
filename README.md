@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.0 · **Last updated:** 2026-10-26
+**Version:** 2.1.0 · **Last updated:** 2026-10-27
+
+**Status:** stable. **Offline:** no — the content is loaded from Meta (facebook.com) when you press “Display”; the interface, the iframe/two-click code generation and the history work without internet.
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -30,6 +32,7 @@ You paste a Facebook URL that is already public, and the app builds an `<iframe>
 - **Vitrina link:** "copy the Vitrina link" produces a link with `#u=…` (URL, type, width, height). When opened, the link only **pre-fills** the fields; nothing is loaded from Meta until you press "Display". The part after `#` is not sent to any server.
 - **Tolerant paste:** if you paste a whole text (e.g. a sharing message), the first facebook.com / fb.watch / fb.com URL is extracted; tracking parameters (`fbclid`, `mibextid`, `utm_*`, etc.) are removed from the URL before display.
 - **Two-click embed (2.0.0):** “two-click code” generates a placeholder (privacy notice + button) that does not contact Meta until your site’s visitor accepts; only then is the iframe created. “Test the placeholder” previews it before publishing, and “copy the whole history” copies the codes of every history item.
+- **Click to load (2.1.0, optional):** tick “Ask before contacting Meta (click to load)”. Pressing “Display” then shows only a placeholder with the URL and a notice of what Meta would receive (your IP address, browser data, the URL you opened); **no request goes to facebook.com** until you press “Load from Meta”. It is off by default (pressing “Display” was already an explicit action) and is not remembered. It is not the same as the two-click *code* for your own site, which does the equivalent for your visitors.
 
 ## How to use
 
@@ -78,6 +81,9 @@ Vitrina ("Display case") is a single-file page that shows public Facebook pages,
 - Meta's announcement of 15 June 2026 on tokenless access to the oEmbed APIs: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existence of the announcement confirmed; Vitrina does not use oEmbed).
 
 ## History / Changelog
+
+### 2.1.0 — 2026-10-27
+- Optional “click to load” mode, status/offline lines, `CHANGELOG.md`. Previously: v2.0.0.
 
 ### 1.2.5 — 2026-10-23
 - A pasted text containing e.g. `https://evilfacebook.com/foo` no longer loads `facebook.com/foo` (the URL is now taken only when `facebook.com`/`fb.watch`/`fb.com` is a whole host name).

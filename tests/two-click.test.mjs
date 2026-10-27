@@ -1,4 +1,4 @@
-// Teste v2.0.0: încorporare „în două clicuri" (substituent fără contact Meta), copiere în lot, test de afișare.
+// Teste v2.1.0: încorporare „în două clicuri" (substituent fără contact Meta), copiere în lot, test de afișare.
 import {createRequire as __fffCR} from 'node:module';
 import {readFileSync as __fffRF} from 'node:fs';
 import {createRequire} from 'module';
