@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.1.0 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabil. **Offline:** nu — conținutul se încarcă de la Meta (facebook.com) când apeși „Afișează”; interfața, generarea codului iframe/în două clicuri și istoricul funcționează fără internet.
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -30,6 +32,7 @@ Lipești un URL Facebook deja public, iar aplicația construiește un `<iframe>`
 - **Link Vitrina:** „copiază linkul Vitrinei” produce un link cu `#u=…` (URL, tip, lățime, înălțime). Deschis, linkul doar **precompletează** câmpurile; nimic nu se încarcă de la Meta până nu apeși „Afișează”. Partea după `#` nu este trimisă niciunui server.
 - **Lipire tolerantă:** dacă lipești un text întreg (de ex. un mesaj de partajare), se extrage primul URL facebook.com / fb.watch / fb.com; parametrii de urmărire (`fbclid`, `mibextid`, `utm_*` etc.) sunt eliminați din URL înainte de afișare.
 - **Încorporare „două clicuri” (2.0.0):** „cod în două clicuri” generează un substituent (text de confidențialitate + buton) care nu contactează Meta până când vizitatorul site-ului tău acceptă; abia atunci se creează iframe-ul. „Testează substituentul” îl arată înainte de publicare, iar „copiază tot istoricul” copiază codurile tuturor elementelor din istoric.
+- **Clic pentru încărcare (2.1.0, opțional):** bifează „Cere confirmare înainte de a contacta Meta (clic pentru încărcare)”. Apăsând „Afișează” apare doar un substituent cu URL-ul și o notă despre ce ar primi Meta (adresa IP, datele browserului, URL-ul deschis); **nicio cerere nu pleacă spre facebook.com** până nu apeși „Încarcă de la Meta”. Este oprit implicit (apăsarea lui „Afișează” era deja o acțiune explicită) și nu se reține. Nu este același lucru cu *codul* în două clicuri pentru site-ul tău, care face echivalentul pentru vizitatorii tăi.
 
 ## Manual de utilizare
 
@@ -78,6 +81,9 @@ Vitrina este o pagină într-un singur fișier care afișează pagini, postări 
 - Anunțul Meta din 15 iunie 2026 privind accesul fără token la API-urile oEmbed: https://developers.facebook.com/blog/post/2026/06/15/tokenless-access-to-meta-oembed-apis/ (existența anunțului confirmată; Vitrina nu folosește oEmbed).
 
 ## Istoric / Changelog
+
+### 2.1.0 — 2026-10-27
+- Mod opțional „clic pentru încărcare”, linii Stare/Offline, `CHANGELOG.md`. Anterior: v2.0.0.
 
 ### 1.2.5 — 2026-10-23
 - Un text lipit care conține de exemplu `https://evilfacebook.com/foo` nu mai încarcă `facebook.com/foo` (URL-ul se ia doar când `facebook.com`/`fb.watch`/`fb.com` este un nume de gazdă întreg).
