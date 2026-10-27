@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.1.0 · **Utolsó frissítés:** 2026-10-27
+**Verzió:** 2.2.0 · **Utolsó frissítés:** 2026-10-27
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -43,7 +43,7 @@ Beillesztesz egy már nyilvános Facebook-URL-t, az alkalmazás pedig `<iframe>`
 
 **Fiók nélkül ≠ követés nélkül.**
 
-- Tárolás: nem használ `localStorage`-et, `sessionStorage`-et, sütiket vagy IndexedDB-t; az előzmények csak a lap memóriájában léteznek.
+- Tárolás: nem használ `localStorage`-et, `sessionStorage`-et, sütiket vagy IndexedDB-t; az előzmények csak a lap memóriájában léteznek. 2.2.0 óta kivétel: a „kattintásra töltés” beállítás, ha bejelölöd, a `localStorage`-ban marad (kulcs: `vitrina_c2l`); gépi fordítás.
 - Felvett kapcsolatú gazdagép, csak a „Megjelenítés” megnyomásakor: `www.facebook.com` (a modul iframe-je). A Meta megkapja az IP-címedet, a böngésződ adatait és a megtekintett URL-t, és a saját szabályzatai szerint sütiket állíthat be az iframe-ben. A küldött Referrer az eredetre korlátozott (`strict-origin-when-cross-origin`).
 - Az oldalon CSP-szabályzat van (`meta http-equiv`), amely csak a `facebook.com` felé engedélyez kereteket; a saját szkriptet SHA-256-hash engedélyezi (a `script-src`-ben nincs `'unsafe-inline'`); nincsenek külső szkriptek vagy erőforrások. A Meta moduljainak tényleges betöltését a fejlesztői környezetből nem lehetett tesztelni (nincs hálózati hozzáférés).
 - Nincs analitika; az alkalmazás máshová nem küld adatot. Nem kér böngészőengedélyeket.

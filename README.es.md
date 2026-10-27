@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 2.1.0 · **Última actualización:** 2026-10-27
+**Versión:** 2.2.0 · **Última actualización:** 2026-10-27
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -43,7 +43,7 @@ Pegas una URL de Facebook que ya es pública y la aplicación construye un `<ifr
 
 **Sin cuenta ≠ sin rastreo.**
 
-- Almacenamiento: no se usan `localStorage`, `sessionStorage`, cookies ni IndexedDB; el historial solo existe en la memoria de la pestaña.
+- Almacenamiento: no se usan `localStorage`, `sessionStorage`, cookies ni IndexedDB; el historial solo existe en la memoria de la pestaña. Excepción desde la 2.2.0: la opción «clic para cargar», si se marca, se recuerda en `localStorage` (clave `vitrina_c2l`); traducción automática.
 - Host contactado, solo al pulsar «Mostrar»: `www.facebook.com` (el iframe del módulo). Meta recibe tu dirección IP, los datos de tu navegador y la URL visualizada, y puede establecer cookies en el iframe, según sus políticas. El Referrer enviado se limita al origen (`strict-origin-when-cross-origin`).
 - La página tiene una política CSP (`meta http-equiv`) que permite marcos solo hacia `facebook.com`; su propio script está autorizado mediante un hash SHA-256 (sin `'unsafe-inline'` en `script-src`); no tiene scripts ni recursos externos. La carga real de los módulos de Meta no pudo probarse desde el entorno de desarrollo (sin acceso a la red).
 - Sin analítica; la aplicación no envía datos a ningún otro sitio. No solicita permisos del navegador.

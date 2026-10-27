@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 2.1.0 · **Zuletzt aktualisiert:** 2026-10-27
+**Version:** 2.2.0 · **Zuletzt aktualisiert:** 2026-10-27
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -43,7 +43,7 @@ Sie fügen eine bereits öffentliche Facebook-URL ein, und die Anwendung baut ei
 
 **Ohne Konto ≠ ohne Tracking.**
 
-- Speicherung: `localStorage`, `sessionStorage`, Cookies und IndexedDB werden nicht verwendet; der Verlauf existiert nur im Speicher des Tabs.
+- Speicherung: `localStorage`, `sessionStorage`, Cookies und IndexedDB werden nicht verwendet; der Verlauf existiert nur im Speicher des Tabs. Ausnahme seit 2.2.0: Die Option „Klick zum Laden“ wird, wenn angehakt, in `localStorage` gespeichert (Schlüssel `vitrina_c2l`); automatische Übersetzung.
 - Kontaktierter Host, nur beim Drücken von „Anzeigen“: `www.facebook.com` (der iframe des Moduls). Meta erhält Ihre IP-Adresse, Ihre Browserdaten und die angesehene URL und kann gemäß ihren Richtlinien Cookies im iframe setzen. Der gesendete Referrer ist auf den Ursprung beschränkt (`strict-origin-when-cross-origin`).
 - Die Seite hat eine CSP-Richtlinie (`meta http-equiv`), die Frames nur zu `facebook.com` erlaubt; das eigene Skript ist per SHA-256-Hash autorisiert (kein `'unsafe-inline'` in `script-src`); es gibt keine externen Skripte oder Ressourcen. Das tatsächliche Laden der Meta-Module konnte aus der Entwicklungsumgebung nicht getestet werden (kein Netzwerkzugang).
 - Keine Analysen; die Anwendung sendet keine Daten anderswohin. Sie verlangt keine Browserberechtigungen.

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 2.1.0 · **Dernière mise à jour :** 2026-10-27
+**Version :** 2.2.0 · **Dernière mise à jour :** 2026-10-27
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -43,7 +43,7 @@ Vous collez une URL Facebook déjà publique, et l'application construit un `<if
 
 **Sans compte ≠ sans pistage.**
 
-- Stockage : on n'utilise ni `localStorage`, ni `sessionStorage`, ni cookies, ni IndexedDB ; l'historique n'existe que dans la mémoire de l'onglet.
+- Stockage : on n'utilise ni `localStorage`, ni `sessionStorage`, ni cookies, ni IndexedDB ; l'historique n'existe que dans la mémoire de l'onglet. Exception depuis la 2.2.0 : le choix « clic pour charger », s'il est coché, est mémorisé dans `localStorage` (clé `vitrina_c2l`) ; traduction automatique.
 - Hôte contacté, uniquement lorsque vous appuyez sur « Afficher » : `www.facebook.com` (l'iframe du module). Meta reçoit votre adresse IP, les données de votre navigateur et l'URL consultée, et peut déposer des cookies dans l'iframe, conformément à ses politiques. Le Referrer envoyé est limité à l'origine (`strict-origin-when-cross-origin`).
 - La page comporte une politique CSP (`meta http-equiv`) qui n'autorise les cadres que vers `facebook.com` ; son propre script est autorisé par un hash SHA-256 (sans `'unsafe-inline'` dans `script-src`) ; elle n'a ni scripts ni ressources externes. Le chargement réel des modules Meta n'a pas pu être testé depuis l'environnement de développement (sans accès au réseau).
 - Aucune analytique ; l'application n'envoie de données nulle part ailleurs. Elle ne demande aucune autorisation au navigateur.

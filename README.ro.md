@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.1.0 · **Ultima actualizare:** 2026-10-27
+**Versiune:** 2.2.0 · **Ultima actualizare:** 2026-10-27
 
 **Stare:** stabil. **Offline:** nu — conținutul se încarcă de la Meta (facebook.com) când apeși „Afișează”; interfața, generarea codului iframe/în două clicuri și istoricul funcționează fără internet.
 
@@ -32,7 +32,7 @@ Lipești un URL Facebook deja public, iar aplicația construiește un `<iframe>`
 - **Link Vitrina:** „copiază linkul Vitrinei” produce un link cu `#u=…` (URL, tip, lățime, înălțime). Deschis, linkul doar **precompletează** câmpurile; nimic nu se încarcă de la Meta până nu apeși „Afișează”. Partea după `#` nu este trimisă niciunui server.
 - **Lipire tolerantă:** dacă lipești un text întreg (de ex. un mesaj de partajare), se extrage primul URL facebook.com / fb.watch / fb.com; parametrii de urmărire (`fbclid`, `mibextid`, `utm_*` etc.) sunt eliminați din URL înainte de afișare.
 - **Încorporare „două clicuri” (2.0.0):** „cod în două clicuri” generează un substituent (text de confidențialitate + buton) care nu contactează Meta până când vizitatorul site-ului tău acceptă; abia atunci se creează iframe-ul. „Testează substituentul” îl arată înainte de publicare, iar „copiază tot istoricul” copiază codurile tuturor elementelor din istoric.
-- **Clic pentru încărcare (2.1.0, opțional):** bifează „Cere confirmare înainte de a contacta Meta (clic pentru încărcare)”. Apăsând „Afișează” apare doar un substituent cu URL-ul și o notă despre ce ar primi Meta (adresa IP, datele browserului, URL-ul deschis); **nicio cerere nu pleacă spre facebook.com** până nu apeși „Încarcă de la Meta”. Este oprit implicit (apăsarea lui „Afișează” era deja o acțiune explicită) și nu se reține. Nu este același lucru cu *codul* în două clicuri pentru site-ul tău, care face echivalentul pentru vizitatorii tăi.
+- **Clic pentru încărcare (2.1.0, opțional):** bifează „Cere confirmare înainte de a contacta Meta (clic pentru încărcare)”. Apăsând „Afișează” apare doar un substituent cu URL-ul și o notă despre ce ar primi Meta (adresa IP, datele browserului, URL-ul deschis); **nicio cerere nu pleacă spre facebook.com** până nu apeși „Încarcă de la Meta”. Este oprit implicit (apăsarea lui „Afișează” era deja o acțiune explicită); din 2.2.0, dacă îl bifezi, alegerea se reține în acest browser (`localStorage`, cheia `vitrina_c2l`; dacă stocarea e blocată, funcționează doar pe durata sesiunii). Nu este același lucru cu *codul* în două clicuri pentru site-ul tău, care face echivalentul pentru vizitatorii tăi.
 
 ## Manual de utilizare
 
@@ -47,7 +47,7 @@ Lipești un URL Facebook deja public, iar aplicația construiește un `<iframe>`
 
 **Fără cont ≠ fără urmărire.**
 
-- Stocare: nu se folosește `localStorage`, `sessionStorage`, cookie-uri sau IndexedDB; istoricul e doar în memoria filei.
+- Stocare: nu se folosesc cookie-uri, `sessionStorage` sau IndexedDB; istoricul e doar în memoria filei. Singurul lucru scris în `localStorage`, și doar dacă bifezi, este alegerea „clic pentru încărcare” (cheia `vitrina_c2l`).
 - Gazdă contactată, doar la apăsarea „Afișează": `www.facebook.com` (iframe-ul modulului). Meta primește adresa ta IP, datele browserului și URL-ul vizualizat și poate seta cookie-uri în iframe, potrivit politicilor ei. Referrer-ul trimis este limitat la origine (`strict-origin-when-cross-origin`).
 - Pagina are o politică CSP (`meta http-equiv`) care permite cadre doar către `facebook.com`; scriptul propriu este autorizat prin hash SHA-256 (fără `'unsafe-inline'` în `script-src`); nu are scripturi sau resurse externe. Încărcarea reală a modulelor Meta nu a putut fi testată din mediul de dezvoltare (fără acces la rețea).
 - Nicio analitică; aplicația nu trimite date în altă parte. Nu cere permisiuni ale browserului.
