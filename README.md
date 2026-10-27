@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.1.0 · **Last updated:** 2026-10-27
+**Version:** 2.2.0 · **Last updated:** 2026-10-27
 
 **Status:** stable. **Offline:** no — the content is loaded from Meta (facebook.com) when you press “Display”; the interface, the iframe/two-click code generation and the history work without internet.
 
@@ -32,7 +32,7 @@ You paste a Facebook URL that is already public, and the app builds an `<iframe>
 - **Vitrina link:** "copy the Vitrina link" produces a link with `#u=…` (URL, type, width, height). When opened, the link only **pre-fills** the fields; nothing is loaded from Meta until you press "Display". The part after `#` is not sent to any server.
 - **Tolerant paste:** if you paste a whole text (e.g. a sharing message), the first facebook.com / fb.watch / fb.com URL is extracted; tracking parameters (`fbclid`, `mibextid`, `utm_*`, etc.) are removed from the URL before display.
 - **Two-click embed (2.0.0):** “two-click code” generates a placeholder (privacy notice + button) that does not contact Meta until your site’s visitor accepts; only then is the iframe created. “Test the placeholder” previews it before publishing, and “copy the whole history” copies the codes of every history item.
-- **Click to load (2.1.0, optional):** tick “Ask before contacting Meta (click to load)”. Pressing “Display” then shows only a placeholder with the URL and a notice of what Meta would receive (your IP address, browser data, the URL you opened); **no request goes to facebook.com** until you press “Load from Meta”. It is off by default (pressing “Display” was already an explicit action) and is not remembered. It is not the same as the two-click *code* for your own site, which does the equivalent for your visitors.
+- **Click to load (2.1.0, optional):** tick “Ask before contacting Meta (click to load)”. Pressing “Display” then shows only a placeholder with the URL and a notice of what Meta would receive (your IP address, browser data, the URL you opened); **no request goes to facebook.com** until you press “Load from Meta”. It is off by default (pressing “Display” was already an explicit action); since 2.2.0, if you tick it, the choice is remembered in this browser (`localStorage`, key `vitrina_c2l`; if storage is blocked it works for the session only). It is not the same as the two-click *code* for your own site, which does the equivalent for your visitors.
 
 ## How to use
 
@@ -47,7 +47,7 @@ You paste a Facebook URL that is already public, and the app builds an `<iframe>
 
 **No account ≠ no tracking.**
 
-- Storage: `localStorage`, `sessionStorage`, cookies and IndexedDB are not used; the history lives only in the tab's memory.
+- Storage: cookies, `sessionStorage` and IndexedDB are not used; the history lives only in the tab's memory. The only thing written to `localStorage`, and only if you tick it, is the “click to load” choice (key `vitrina_c2l`).
 - Host contacted, only when you press "Display": `www.facebook.com` (the module's iframe). Meta receives your IP address, your browser data and the URL being viewed, and may set cookies in the iframe, according to its policies. The Referrer sent is limited to the origin (`strict-origin-when-cross-origin`).
 - The page has a CSP policy (`meta http-equiv`) that allows frames only to `facebook.com`; its own script is authorised by a SHA-256 hash (no `'unsafe-inline'` in `script-src`); it has no external scripts or resources. The actual loading of the Meta modules could not be tested from the development environment (no network access).
 - No analytics; the app sends data nowhere else. It asks for no browser permissions.
