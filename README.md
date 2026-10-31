@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.2.0 · **Last updated:** 2026-10-27
+**Version:** 2.2.1 · **Last updated:** 2026-10-31
 
 **Status:** stable. **Offline:** no — the content is loaded from Meta (facebook.com) when you press “Display”; the interface, the iframe/two-click code generation and the history work without internet.
 
