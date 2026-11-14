@@ -23,16 +23,17 @@
     "clipboard",
     "serviceWorker",
     "localStorage",
-    "Web Crypto"
+    "Web Crypto",
+    "WebGL"
   ],
   "storageKeys": [],
-  "sizeBytes": 431254,
-  "sha256": "a7119aae5e480618c191e9fb7c82ea27964ef8a7bb8717879b209a20090b6f05",
+  "sizeBytes": 482896,
+  "sha256": "476de6caa4d81b8043bd3567d26d657dcaac79a5d389d3b485d49ad52ebce389",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×3",
+      "script-src": "sha256×4",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data:",
       "frame-src": "https://www.facebook.com https://*.facebook.com",
