@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "vitrina",
   "name": "Vitrina — conținut public Facebook, fără cont",
-  "version": "2.3.1",
-  "updated": "2026-11-15",
+  "version": "2.3.2",
+  "updated": "2026-11-17",
   "description": "Vitrina afișează pagini, postări și video-uri publice Facebook prin modulele oficiale Meta, fără cont. Conținutul se încarcă de la Meta (IP și URL vizibile Meta). 8 limbi.",
   "egress": [
     {
@@ -27,13 +27,13 @@
     "WebGL"
   ],
   "storageKeys": [],
-  "sizeBytes": 544242,
-  "sha256": "4840e8a7a33024928d143c54fa45c793f16ac8db7e50b8d05220212699725965",
+  "sizeBytes": 610560,
+  "sha256": "a746cad6625d0ed704b0ab2de29281dccc5bfdbf5f43f0f451237d1314d9cdfe",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×4",
+      "script-src": "sha256×6",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data:",
       "frame-src": "https://www.facebook.com https://*.facebook.com",
@@ -80,7 +80,7 @@
     ]
   },
   "kit": {
-    "version": "1.7.0",
+    "version": "1.8.0",
     "modules": [
       "core",
       "store",
